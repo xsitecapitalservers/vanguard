@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanguard Mentorship — XSITE Capital | Beyond 9 to 5 Club</title>
+  <meta name="description" content="20 seats. One year. Your first $1M multifamily deal. The Vanguard Mentorship Program by XSITE Capital — built for high-income professionals who are time-rich in skill but wealth-poor in strategy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design Tokens ── */
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E4C880;
+      --gold-dim:    rgba(201, 168, 76, 0.35);
+      --gold-glow:   rgba(201, 168, 76, 0.12);
+      --ink:         #080D18;
+      --ink-2:       #0d1628;
+      --ink-3:       #141e30;
+      --ink-4:       #1c2840;
+      --slate:       #2a3a52;
+      --white:       #ffffff;
+      --white-80:    rgba(255,255,255,0.80);
+      --white-60:    rgba(255,255,255,0.60);
+      --white-30:    rgba(255,255,255,0.30);
+      --white-10:    rgba(255,255,255,0.06);
+      --glass-bg:    rgba(255,255,255,0.055);
+      --glass-border:rgba(201,168,76,0.18);
+      --glass-blur:  blur(28px) saturate(160%);
+      --radius-sm:   12px;
+      --radius-md:   20px;
+      --radius-lg:   32px;
+      --radius-xl:   48px;
+      --serif:       'Cormorant Garamond', Georgia, serif;
+      --sans:        'Inter', system-ui, sans-serif;
+      --transition:  cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img, video { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── Typography ── */
+    .display-xl {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .display-lg {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .display-md {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+    .label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .body-lg { font-size: 1.1rem; line-height: 1.7; color: var(--white-80); }
+    .body-md { font-size: 0.95rem; line-height: 1.65; color: var(--white-60); }
+    em { font-style: italic; color: var(--gold-light); }
+    strong { font-weight: 600; color: var(--white); }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+    .section { padding: clamp(3rem, 6vw, 5.5rem) 0; position: relative; }
+    .section-header { text-align: center; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+    .section-header .label { margin-bottom: 1rem; display: block; }
+
+    /* ── Glass Card ── */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+    }
+    .glass-strong {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(40px) saturate(200%);
+      -webkit-backdrop-filter: blur(40px) saturate(200%);
+      border: 1px solid rgba(201,168,76,0.28);
+      border-radius: var(--radius-lg);
+    }
+    .glass-pill {
+      background: rgba(201,168,76,0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: inline-block;
+    }
+
+    /* ── Gradient Mesh Backgrounds ── */
+    .mesh-1 {
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(201,168,76,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 60% at 80% 80%, rgba(13,22,40,0.9) 0%, transparent 70%),
+        var(--ink);
+    }
+    .mesh-2 {
+      background:
+        radial-gradient(ellipse 70% 50% at 80% 30%, rgba(201,168,76,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 70% at 10% 80%, rgba(20,30,48,0.8) 0%, transparent 70%),
+        var(--ink-2);
+    }
+    .gold-line {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.5rem auto;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, #C9A84C 0%, #E4C880 50%, #C9A84C 100%);
+      color: #080D18;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s var(--transition);
+      box-shadow: 0 4px 24px rgba(201,168,76,0.35), 0 0 0 0 rgba(201,168,76,0);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      border-radius: inherit;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(201,168,76,0.5), 0 0 60px rgba(201,168,76,0.15);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      color: var(--gold-light);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(201,168,76,0.35);
+      cursor: pointer;
+      transition: all 0.3s var(--transition);
+    }
+    .btn-ghost:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: rgba(201,168,76,0.6);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+      50%       { box-shadow: 0 0 0 12px rgba(201,168,76,0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+    .fade-up { animation: fadeUp 0.8s var(--transition) both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.35s; }
+    .delay-4 { animation-delay: 0.5s; }
+
+    /* ══════════════════════════════════════
+       NAV
+    ══════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 0;
+      background: rgba(8,13,24,0.6);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      transition: all 0.3s var(--transition);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+    }
+    .nav-cta { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-slots {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding-top: 100px;
+    }
+    .hero-orb-container {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90% 70% at 60% 40%, rgba(201,168,76,0.055) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 80% at 10% 80%, rgba(20,35,60,0.7) 0%, transparent 60%),
+        linear-gradient(160deg, #0a0f1c 0%, #080d18 40%, #0d1628 100%);
+    }
+    /* Animated mesh orbs */
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .hero-orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      animation: float 8s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(26,42,64,0.9) 0%, transparent 70%);
+      bottom: 0; left: -80px;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .hero-eyebrow-line {
+      width: 40px; height: 1px;
+      background: var(--gold);
+    }
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+    .hero-program-name {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 6.5vw, 6rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, #C9A84C 0%, #E4C880 45%, #C9A84C 90%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 5s linear infinite;
+      display: block;
+      line-height: 1.25;
+      margin-bottom: 0.4rem;
+      padding-top: 0.1em;
+      padding-bottom: 0.15em;
+    }
+    .hero-title .gold-word {
+      background: linear-gradient(135deg, #C9A84C 0%, #E4C880 40%, #C9A84C 80%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+      display: block;
+    }
+    .hero-desc {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.75;
+      color: var(--white-80);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      line-height: 1;
+      display: block;
+    }
+    .hero-stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    /* Urgency Card */
+    .urgency-card {
+      background: rgba(8,13,24,0.7);
+      backdrop-filter: blur(40px) saturate(200%);
+      -webkit-backdrop-filter: blur(40px) saturate(200%);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .urgency-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .urgency-slots-ring {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+      position: relative;
+    }
+    .urgency-slots-ring svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+    .urgency-slots-ring circle {
+      fill: none;
+      stroke-width: 3;
+    }
+    .ring-bg { stroke: rgba(255,255,255,0.06); }
+    .ring-fill {
+      stroke: var(--gold);
+      stroke-dasharray: 283;
+      stroke-dashoffset: 241; /* 3/20 = 15% filled = 85% empty → 283*0.85=241 */
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 6px rgba(201,168,76,0.6));
+    }
+    .urgency-slots-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .urgency-num {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .urgency-of {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-60);
+    }
+    .urgency-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .urgency-desc {
+      font-size: 0.82rem;
+      color: var(--white-60);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .urgency-pulse {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ff6b6b;
+    }
+    .urgency-pulse::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: #ff6b6b;
+      border-radius: 50%;
+      animation: pulse-gold 1.5s ease infinite;
+    }
+
+    /* ══════════════════════════════════════
+       SOCIAL PROOF BAR
+    ══════════════════════════════════════ */
+    .proof-bar {
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(201,168,76,0.03);
+    }
+    .proof-bar-inner {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: center;
+    }
+    .proof-item {
+      text-align: center;
+      padding: 0.5rem 1rem;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .proof-item:last-child {
+      border-right: none;
+    }
+    .proof-num {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+    .proof-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      margin-top: 0.25rem;
+      line-height: 1.4;
+    }
+    .proof-divider { display: none; }
+    @media (max-width: 700px) {
+      .proof-bar-inner {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+      }
+      .proof-item:nth-child(3) { border-right: none; }
+      .proof-item:nth-child(4) { border-right: 1px solid rgba(255,255,255,0.07); }
+      .proof-item:nth-child(n+4) { border-top: 1px solid rgba(255,255,255,0.07); }
+    }
+
+    /* ══════════════════════════════════════
+       EVENT / MENTEE PICTURES
+    ══════════════════════════════════════ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    .gallery-item {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      position: relative;
+      background: var(--ink-3);
+      aspect-ratio: 4/3;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.5s var(--transition);
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    /* Featured first photo spans 2 columns */
+    .gallery-item.featured { grid-column: span 2; aspect-ratio: 16/7; }
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.featured { grid-column: span 2; aspect-ratio: 16/9; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.featured { grid-column: span 1; aspect-ratio: 16/9; }
+    }
+
+    /* ══════════════════════════════════════
+       VIDEO SECTION
+    ══════════════════════════════════════ */
+    .video-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--ink-3);
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+    .video-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .video-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(160deg, #0d1628, #141e30);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+    .video-play-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #C9A84C, #E4C880);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 0 rgba(201,168,76,0.4);
+      animation: pulse-gold 2s ease infinite;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .video-play-btn:hover { transform: scale(1.08); }
+    .video-play-btn svg { margin-left: 4px; }
+    .video-caption {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-60);
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .video-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--ink-3);
+      border: 1px solid rgba(201,168,76,0.12);
+    }
+    .video-card video {
+      width: 100%;
+      display: block;
+      background: #000;
+    }
+    .video-card .video-meta {
+      padding: 1.25rem 1.5rem;
+    }
+    .video-card .video-name {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+    .video-card .video-title {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════════════
+       PROBLEM
+    ══════════════════════════════════════ */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .problem-grid { grid-template-columns: 1fr; }
+    }
+    .problem-card {
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(201,168,76,0.12);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s var(--transition), border-color 0.3s;
+    }
+    .problem-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,168,76,0.3);
+    }
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+    .problem-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+    }
+    .problem-card h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+    .pullquote {
+      border-left: 2px solid var(--gold);
+      padding: 1.5rem 2rem;
+      margin: 3rem 0;
+      background: rgba(201,168,76,0.04);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+    .pullquote p {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      line-height: 1.4;
+      font-style: italic;
+      color: var(--white-80);
+    }
+
+    /* ══════════════════════════════════════
+       SOLUTION
+    ══════════════════════════════════════ */
+    .paradigm-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+    .paradigm-col {
+      padding: 2.5rem 2rem;
+    }
+    .paradigm-col.old {
+      background: rgba(255,255,255,0.03);
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .paradigm-col.new {
+      background: linear-gradient(160deg, rgba(201,168,76,0.07), rgba(201,168,76,0.02));
+    }
+    .paradigm-col-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .paradigm-col.old .paradigm-col-label { color: var(--white-30); }
+    .paradigm-col.new .paradigm-col-label {
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-shadow: 0 0 18px rgba(201,168,76,0.55), 0 0 36px rgba(201,168,76,0.25);
+      letter-spacing: 0.22em;
+    }
+    .paradigm-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.9rem;
+    }
+    .paradigm-item:last-child { border-bottom: none; }
+    .paradigm-item.old-item { color: var(--white-60); }
+    .paradigm-item.old-item .icon { color: rgba(255,255,255,0.2); }
+    .paradigm-item.new-item { color: var(--white-80); }
+    .paradigm-item.new-item .icon { color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       PURPOSE
+    ══════════════════════════════════════ */
+    .founders-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    .founder-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: var(--radius-lg);
+      transition: transform 0.3s var(--transition), border-color 0.3s;
+    }
+    .founder-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,168,76,0.3);
+    }
+    .founder-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, var(--ink-4), var(--slate));
+      border: 2px solid rgba(201,168,76,0.3);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 0 4px rgba(201,168,76,0.08), 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .founder-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .founder-avatar svg { opacity: 0.4; }
+    .founder-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    .founder-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .founder-bio { font-size: 0.88rem; color: var(--white-60); line-height: 1.65; }
+
+    /* ══════════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════════ */
+    .testimonial-card {
+      padding: 2.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.14);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s var(--transition);
+    }
+    .testimonial-card:hover { transform: translateY(-4px); }
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.5rem;
+      left: 1.5rem;
+      font-family: var(--serif);
+      font-size: 8rem;
+      font-weight: 300;
+      color: rgba(201,168,76,0.07);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .testimonial-text {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--white-80);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-meta { display: flex; align-items: center; gap: 1rem; }
+    .testimonial-avatar {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ink-4), var(--slate));
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+    .testimonial-cred {
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+    .testimonial-result {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+    .testi-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ══════════════════════════════════════
+       RESULTS
+    ══════════════════════════════════════ */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .result-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s var(--transition);
+    }
+    .result-card:hover {
+      background: rgba(201,168,76,0.05);
+      border-color: rgba(201,168,76,0.28);
+      transform: translateY(-3px);
+    }
+    .result-number {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 300;
+      background: linear-gradient(135deg, #C9A84C, #E4C880);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .result-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white-60);
+    }
+
+    /* ══════════════════════════════════════
+       WHAT YOU GET
+    ══════════════════════════════════════ */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .deliverable-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: var(--radius-md);
+      transition: all 0.25s var(--transition);
+    }
+    .deliverable-item:hover {
+      background: rgba(201,168,76,0.05);
+      border-color: rgba(201,168,76,0.25);
+    }
+    .deliverable-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #C9A84C, #E4C880);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .deliverable-check svg { width: 11px; height: 11px; }
+    .deliverable-text strong { display: block; font-size: 0.9rem; margin-bottom: 0.15rem; color: var(--white); }
+    .deliverable-text span { font-size: 0.8rem; color: var(--white-60); }
+
+    /* ══════════════════════════════════════
+       PRICING COMPARISON
+    ══════════════════════════════════════ */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .pricing-card {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.15);
+      position: relative;
+      transition: transform 0.3s var(--transition);
+    }
+    .pricing-card:hover { transform: translateY(-6px); }
+    .pricing-card.featured {
+      border-color: rgba(201,168,76,0.45);
+      box-shadow: 0 0 60px rgba(201,168,76,0.1), 0 24px 60px rgba(0,0,0,0.4);
+    }
+    .pricing-card.featured::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(201,168,76,0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .pricing-badge {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: linear-gradient(135deg, #C9A84C, #E4C880);
+      color: #080D18;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+    }
+    .pricing-header {
+      padding: 2.5rem 2.5rem 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .pricing-tier {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .pricing-name {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+    }
+    .pricing-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+    .pricing-currency {
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .pricing-amount {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+    }
+    .pricing-duration {
+      font-size: 0.8rem;
+      color: var(--white-60);
+      align-self: flex-end;
+      padding-bottom: 0.3rem;
+    }
+    .pricing-body { padding: 2rem 2.5rem; }
+    .pricing-groups { display: flex; flex-direction: column; gap: 1.5rem; }
+    .pricing-group-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+      display: block;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .pricing-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.5rem 0;
+      font-size: 0.85rem;
+      color: var(--white-80);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .pricing-feature:last-child { border-bottom: none; }
+    .pricing-feature-icon { color: var(--gold); flex-shrink: 0; margin-top: 0.1rem; }
+    .pricing-feature .highlight {
+      background: rgba(201,168,76,0.12);
+      color: var(--gold-light);
+      font-size: 0.7rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      margin-left: 0.4rem;
+      white-space: nowrap;
+    }
+    .pricing-cta {
+      padding: 0 2.5rem 2.5rem;
+    }
+    .pricing-cta .btn-primary { width: 100%; justify-content: center; }
+    .pricing-cta .btn-ghost { width: 100%; justify-content: center; margin-top: 0.75rem; }
+    .pricing-value-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--white-60);
+      margin-top: 0.75rem;
+    }
+
+    /* Comparison header */
+    .pricing-compare-intro {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 4rem;
+    }
+
+    /* ══════════════════════════════════════
+       GUARANTEE
+    ══════════════════════════════════════ */
+    .guarantee-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .guarantee-badge {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.04));
+      border: 2px solid rgba(201,168,76,0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2.5rem;
+      box-shadow: 0 0 40px rgba(201,168,76,0.1);
+    }
+    .guarantee-badge-num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .guarantee-badge-text {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .guarantee-card {
+      padding: 3.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+    }
+    .guarantee-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    /* ══════════════════════════════════════
+       APPLY + BOOK COMBINED
+    ══════════════════════════════════════ */
+    .form-section { background: var(--ink-2); }
+    .apply-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      align-items: start;
+    }
+    .apply-col { min-width: 0; }
+    .apply-col-header { margin-bottom: 0.25rem; }
+    .apply-col-header p { margin-top: 0.5rem; }
+    .apply-divider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 2.5rem;
+      padding-top: 12rem;
+    }
+    .apply-divider-line {
+      flex: 1;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.25), transparent);
+      min-height: 80px;
+    }
+    .apply-divider-or {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--white-30);
+      white-space: nowrap;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+    .form-glass {
+      padding: 2.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+    }
+    .form-glass::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .meeting-card {
+      text-align: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+    }
+    .meeting-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .meeting-headshot {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ink-4), var(--slate));
+      border: 2px solid rgba(201,168,76,0.3);
+      margin: 0 auto 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 900px) {
+      .apply-grid {
+        grid-template-columns: 1fr;
+      }
+      .apply-divider {
+        flex-direction: row;
+        padding: 1.5rem 0;
+        padding-top: 1.5rem;
+      }
+      .apply-divider-line {
+        width: auto;
+        height: 1px;
+        min-height: unset;
+        flex: 1;
+        background: linear-gradient(to right, transparent, rgba(201,168,76,0.25), transparent);
+      }
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+    }
+    footer p {
+      font-size: 0.78rem;
+      color: var(--white-30);
+      line-height: 2;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION DIVIDERS
+    ══════════════════════════════════════ */
+    .divider {
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.3), transparent);
+      margin: 0 auto;
+    }
+
+    /* ══════════════════════════════════════
+       STICKY BOTTOM BAR (Mobile CTA)
+    ══════════════════════════════════════ */
+    /* ══════════════════════════════════════
+       AWARDS SECTION
+    ══════════════════════════════════════ */
+    .awards-section { background: var(--ink); }
+    .award-crest {
+      width: 80px; height: 80px;
+      margin: 0 auto 2rem;
+      background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.04));
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 40px rgba(201,168,76,0.12);
+    }
+    .awards-masonry {
+      columns: 3;
+      column-gap: 1rem;
+    }
+    .awards-masonry .award-photo {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.12);
+      transition: transform 0.3s var(--transition), border-color 0.3s;
+      position: relative;
+    }
+    .awards-masonry .award-photo:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,168,76,0.35);
+    }
+    .awards-masonry .award-photo img {
+      width: 100%; display: block;
+    }
+    .award-photo-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.5rem 1rem 1rem;
+      background: linear-gradient(to top, rgba(8,13,24,0.85), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .award-photo:hover .award-photo-overlay { opacity: 1; }
+    .award-photo-overlay span {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    @media (max-width: 768px) {
+      .awards-masonry { columns: 2; }
+    }
+    @media (max-width: 480px) {
+      .awards-masonry { columns: 1; }
+    }
+
+    .sticky-bottom {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 90;
+      padding: 1rem 1.5rem;
+      background: rgba(8,13,24,0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transform: translateY(100%);
+      transition: transform 0.4s var(--transition);
+    }
+    .sticky-bottom.visible { transform: translateY(0); }
+    .sticky-text {
+      font-size: 0.82rem;
+      color: var(--white-80);
+      line-height: 1.3;
+    }
+    .sticky-text strong { color: var(--gold-light); display: block; font-size: 0.88rem; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .urgency-card { max-width: 380px; margin: 0 auto; }
+      .paradigm-table { grid-template-columns: 1fr; }
+      .paradigm-col.old { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .gallery-item.featured { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 2.5rem 0; }
+      .form-glass { padding: 2rem 1.5rem; }
+      .guarantee-card { padding: 2rem 1.5rem; }
+      .meeting-card { padding: 2.5rem 1.5rem; }
+      .hero-stats { gap: 1.5rem; }
+      .proof-divider { display: none; }
+      .pricing-card.featured { order: -1; }
+    }
+
+    /* Scroll-reveal utility */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <img src="Beyond 9 to 5---no-background-XSITE.png" alt="Beyond 9 to 5 Club by XSITE Capital" style="height: 40px; width: auto; display: block;" />
+      </div>
+      <div class="nav-cta">
+        <span class="nav-slots">3 Seats Left</span>
+        <a href="#apply" class="btn-primary" style="padding: 0.65rem 1.5rem; font-size: 0.78rem;">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-orb-container">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-eyebrow fade-up">
+          <span class="hero-eyebrow-line"></span>
+          <span class="label">2026 Cohort · 3 of 20 Seats Remaining</span>
+        </div>
+        <span class="hero-program-name fade-up delay-1">Vanguard</span>
+        <h1 class="hero-title fade-up delay-2">
+          The <span class="gold-word" style="display:inline; font-size:inherit; -webkit-text-fill-color:transparent; font-weight:700; font-style:italic;">System</span> That Turns<br>Your Profession Into<br>Passive Income.
+        </h1>
+        <p class="hero-desc fade-up delay-2">
+          You earn well. You work harder than anyone. But W-2 income is the highest-taxed money on earth — and when you stop, it stops. Vanguard is the elite mentorship program for high-income professionals who are ready to build their first multifamily asset and exit the time-for-money trap permanently.
+        </p>
+        <div class="hero-actions fade-up delay-3">
+          <a href="#apply" class="btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Apply for a Seat
+          </a>
+          <a href="#video-founders" class="btn-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+            Watch Founders' Message
+          </a>
+        </div>
+        <div class="hero-stats fade-up delay-4">
+          <div>
+            <span class="hero-stat-num">$1M+</span>
+            <span class="hero-stat-label">First deal target</span>
+          </div>
+          <div style="width:1px; height:36px; background:rgba(255,255,255,0.08);"></div>
+          <div>
+            <span class="hero-stat-num">30+</span>
+            <span class="hero-stat-label">Professionals mentored</span>
+          </div>
+          <div style="width:1px; height:36px; background:rgba(255,255,255,0.08);"></div>
+          <div>
+            <span class="hero-stat-num">20</span>
+            <span class="hero-stat-label">Max seats per year</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Urgency Widget -->
+      <div class="urgency-card fade-up delay-2">
+        <div class="urgency-slots-ring">
+          <svg viewBox="0 0 100 100">
+            <circle class="ring-bg" cx="50" cy="50" r="45"/>
+            <circle class="ring-fill" cx="50" cy="50" r="45"/>
+          </svg>
+          <div class="urgency-slots-inner">
+            <span class="urgency-num">3</span>
+            <span class="urgency-of">of 20 left</span>
+          </div>
+        </div>
+        <h3 class="urgency-title">2026 Cohort Closing</h3>
+        <p class="urgency-desc">We intentionally limit every cohort to 20 professionals. This ensures every member receives genuine attention, not a template. When the seats fill, the program closes — until next year.</p>
+        <div style="margin-bottom: 1.5rem;">
+          <a href="#apply" class="btn-primary" style="width: 100%; justify-content: center; display: flex;">Secure My Seat</a>
+        </div>
+        <span class="urgency-pulse">17 seats taken this cycle</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROOF BAR ══ -->
+  <div class="proof-bar">
+    <div class="proof-bar-inner container">
+      <div class="proof-item">
+        <div class="proof-num">$2M+</div>
+        <div class="proof-label">Capital raised by mentees</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">12 mo.</div>
+        <div class="proof-label">Avg. time to first deal</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">350+</div>
+        <div class="proof-label">Hours of mentorship per member</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">100%</div>
+        <div class="proof-label">Keep-working guarantee</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">30+</div>
+        <div class="proof-label">Businesses created</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ GALLERY: Events & Mentee Pics ══ -->
+  <section class="section mesh-1" id="community">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">The Community</span>
+        <h2 class="display-lg">Where <em>proximity</em><br>becomes leverage.</h2>
+        <div class="gold-line"></div>
+        <p class="body-lg" style="max-width: 560px; margin: 0 auto;">The people you surround yourself with in this program are doctors, engineers, entrepreneurs, and operators — all in motion.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <!-- Row 1: featured wide + 1 -->
+        <div class="gallery-item featured">
+          <img src="img/community-Masterclass-Atlanta-Dec-6-7.jpeg" alt="Masterclass Atlanta" />
+        </div>
+        <div class="gallery-item">
+          <img src="img/community-XSITE_MEETUP_JUNE_2025-36.jpeg" alt="XSITE Meetup June 2025" />
+        </div>
+        <!-- Row 2: 3 equal -->
+        <div class="gallery-item">
+          <img src="img/community-Weekend-25.jpeg" alt="Community Weekend" />
+        </div>
+        <div class="gallery-item">
+          <img src="img/community-XSITE-TEWOMM-AUG_2_2025-60.jpeg" alt="XSITE Event August 2025" />
+        </div>
+        <div class="gallery-item">
+          <img src="img/community-XSITE_MEETUP_JUNE_2025-27.jpeg" alt="XSITE Meetup June 2025" />
+        </div>
+        <!-- Row 3: 3 equal -->
+        <div class="gallery-item">
+          <img src="img/community-Weekend-42.jpeg" alt="Community Weekend" />
+        </div>
+        <div class="gallery-item">
+          <img src="img/community-XSITE-TEWOMM-AUG_2_2025-34.jpeg" alt="XSITE Event August 2025" />
+        </div>
+        <div class="gallery-item">
+          <img src="img/community-XSITE_MEETUP_JUNE_2025-70.jpeg" alt="XSITE Meetup" />
+        </div>
+        <!-- Row 4: featured wide + 1 -->
+        <div class="gallery-item featured">
+          <img src="img/community-Weekend-9.jpeg" alt="Community Weekend" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ VIDEO: Founders' Message ══ -->
+  <section class="section" id="video-founders" style="background: var(--ink-2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">A Message From the Founders</span>
+        <h2 class="display-lg">Hear it directly<br>from <em>Leslie & Tenny.</em></h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="reveal" style="max-width: 800px; margin: 0 auto;">
+        <div class="video-wrap">
+          <video
+            src="https://pub-68989bd4060d43fa8b57ed2f93892825.r2.dev/The%20XSITE%20Story%20-%20How%20we%20made%20our%20wealth%20from%20working%20our%209%20to%205.mp4"
+            controls
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            style="width:100%; display:block; border-radius: var(--radius-lg);"
+          ></video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ THE PROBLEM ══ -->
+  <section class="section mesh-1" id="problem">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">The Problem</span>
+        <h2 class="display-lg">The <em>High-Income Trap</em><br>is real. And it's designed<br>to keep you in it.</h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="pullquote reveal">
+        <p>"You earn well. You work hard. But W-2 income is the highest-taxed money on earth. And when you stop working — it stops. That's not a business. That's a job with a better title."</p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <svg class="problem-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M24 14v10l6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3>The Time Ceiling</h3>
+          <p class="body-md">You are trading hours for dollars. If you stop working, the money stops. There is no ceiling on how hard you can work — and no floor either. That is not leverage. That is a treadmill.</p>
+        </div>
+        <div class="problem-card reveal">
+          <svg class="problem-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="14" width="28" height="22" rx="2" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M18 14V10M30 14V10M10 22h28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M18 30h4M26 30h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <h3>The Tax Penalty</h3>
+          <p class="body-md">W-2 income is the highest-taxed money on earth. You are working four months every year just for the IRS. Multifamily real estate is one of the few legal ways to reverse this equation.</p>
+        </div>
+        <div class="problem-card reveal">
+          <svg class="problem-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 8v6M24 34v6M8 24h6M34 24h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M24 18v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3>The Inflation Leak</h3>
+          <p class="body-md">Your savings are depreciating at 4–7% per year. Sitting in cash is not a strategy — it is a slow loss. You cannot save your way to generational wealth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ THE SOLUTION ══ -->
+  <section class="section" id="solution" style="background: var(--ink-2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">The Solution</span>
+        <h2 class="display-lg">One roof.<br><em>100 checks.</em></h2>
+        <div class="gold-line"></div>
+        <p class="body-lg" style="max-width: 600px; margin: 0 auto;">The Multifamily Paradigm: engineer generational wealth without fixing a single toilet or sacrificing your primary career. Trade manual labor for scalable systems.</p>
+      </div>
+
+      <div class="paradigm-table reveal" style="margin-bottom: 4rem;">
+        <div class="paradigm-col old">
+          <span class="paradigm-col-label">Where You Are Now</span>
+          <div class="paradigm-item old-item"><span class="icon">✕</span>You trade time for money</div>
+          <div class="paradigm-item old-item"><span class="icon">✕</span>One tenant = one check</div>
+          <div class="paradigm-item old-item"><span class="icon">✕</span>High individual risk, low scale</div>
+          <div class="paradigm-item old-item"><span class="icon">✕</span>W-2 income taxed at max rate</div>
+          <div class="paradigm-item old-item"><span class="icon">✕</span>Savings eroded by inflation</div>
+          <div class="paradigm-item old-item"><span class="icon">✕</span>Income stops when you stop</div>
+        </div>
+        <div class="paradigm-col new">
+          <span class="paradigm-col-label">The Multifamily Model</span>
+          <div class="paradigm-item new-item"><span class="icon">✓</span>You trade systems for money</div>
+          <div class="paradigm-item new-item"><span class="icon">✓</span>One roof = 100 checks</div>
+          <div class="paradigm-item new-item"><span class="icon">✓</span>Engineered appreciation, massive scale</div>
+          <div class="paradigm-item new-item"><span class="icon">✓</span>Depreciation offsets W-2 income</div>
+          <div class="paradigm-item new-item"><span class="icon">✓</span>Equity compounds as inflation rises</div>
+          <div class="paradigm-item new-item"><span class="icon">✓</span>Cash flow continues while you sleep</div>
+        </div>
+      </div>
+
+      <div class="glass-strong reveal" style="padding: 3rem; text-align: center; max-width: 720px; margin: 0 auto;">
+        <p class="body-md" style="font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem;">The Wealth Formula</p>
+        <h3 class="display-md" style="margin-bottom: 1rem;">Property Value = <em>NOI / CAP Rate</em></h3>
+        <p class="body-md">When you understand this formula — and how to engineer the numerator — you stop speculating and start building. Vanguard teaches you to operate at the asset level, not the landlord level.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PURPOSE ══ -->
+  <section class="section mesh-2" id="purpose">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Why We Built This</span>
+        <h2 class="display-lg">We were high-income<br>earners who were<br><em>time poor.</em></h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div style="max-width: 760px; margin: 0 auto 5rem; text-align: center;" class="reveal">
+        <p class="body-lg" style="margin-bottom: 1.5rem;">
+          We didn't need another job. We needed a money model. After years of navigating the multifamily space — closing deals, building systems, raising capital — we realized the information asymmetry was the real barrier for professionals like us.
+        </p>
+        <p class="body-lg">
+          Vanguard was built to close that gap. Not with courses. Not with content. With direct access, live mentorship, real deal flow, and a network that opens doors that money alone can't buy.
+        </p>
+      </div>
+
+      <div class="founders-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="founder-card reveal">
+          <div class="founder-avatar">
+            <img src="img/founder-leslie.jpg" alt="Leslie Awasom" />
+          </div>
+          <h3 class="founder-name">Leslie Awasom</h3>
+          <span class="founder-role">Co-Founder · COO</span>
+          <p class="founder-bio">Systems architect and deal operator. Leslie brings the operational infrastructure that turns identified opportunities into executed transactions — from underwriting through closing.</p>
+        </div>
+        <div class="founder-card reveal">
+          <div class="founder-avatar">
+            <img src="img/founder-julius.jpg" alt="Dr. Julius Oni" />
+          </div>
+          <h3 class="founder-name">Dr. Julius Oni</h3>
+          <span class="founder-role">Co-Founder · CEO</span>
+          <p class="founder-bio">CRNA turned real estate operator. Julius built his investment portfolio while maintaining a full clinical career — proof that the model works for busy professionals with no time to spare.</p>
+        </div>
+        <div class="founder-card reveal">
+          <div class="founder-avatar">
+            <img src="img/founder-tenny.jpg" alt="Tenny Tolofari" />
+          </div>
+          <h3 class="founder-name">Tenny Tolofari</h3>
+          <span class="founder-role">Co-Founder · CGO</span>
+          <p class="founder-bio">Capital architect and growth strategist. Tenny engineered the systems for raising private capital and building investor relationships that have funded multiple multifamily acquisitions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ VIDEO TESTIMONIALS #1 ══ -->
+  <section class="section" style="background: var(--ink-2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Mentee Voices</span>
+        <h2 class="display-lg">The only thing I regret<br>is <em>not starting sooner.</em></h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="video-grid reveal">
+        <div class="video-card">
+          <video
+            src="https://pub-68989bd4060d43fa8b57ed2f93892825.r2.dev/Admir%20testimonial.mp4"
+            controls
+            preload="none"
+            poster="img/thumb-admir.jpg"
+            style="width:100%; display:block;"
+          ></video>
+          <div class="video-meta">
+            <div class="video-name">Admir</div>
+            <div class="video-title">Vanguard · 2023 Cohort</div>
+          </div>
+        </div>
+        <div class="video-card">
+          <video
+            src="https://pub-68989bd4060d43fa8b57ed2f93892825.r2.dev/Success%20Story%20with%20Joshua%20Akers-HEVC%20Broadband%20HD%20(and%204G%20LTE%20and%20higher).mov"
+            controls
+            preload="none"
+            poster="img/thumb-joshua.jpg"
+            style="width:100%; display:block;"
+          ></video>
+          <div class="video-meta">
+            <div class="video-name">Joshua Akers</div>
+            <div class="video-title">Vanguard · 2026 Cohort</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RESULTS ══ -->
+  <section class="section mesh-1" id="results">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Measured Outcomes</span>
+        <h2 class="display-lg">What the numbers<br>actually <em>look like.</em></h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="results-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="result-card reveal">
+          <span class="result-number">$9M+</span>
+          <span class="result-label">Capital raised by mentees</span>
+        </div>
+        <div class="result-card reveal">
+          <span class="result-number">2</span>
+          <span class="result-label">Multifamily properties closed in 24 months by one member</span>
+        </div>
+        <div class="result-card reveal">
+          <span class="result-number">30+</span>
+          <span class="result-label">Professionals mentored and businesses created</span>
+        </div>
+        <div class="result-card reveal">
+          <span class="result-number">12mo</span>
+          <span class="result-label">Average time from program start to first close</span>
+        </div>
+      </div>
+
+      <div class="testi-grid-2" style="margin-top: 4rem;">
+        <div class="testimonial-card reveal">
+          <p class="testimonial-text">"I own 2 multifamily properties closed in 24 months, generating consistent monthly cash flow — all while fully maintaining my clinical career."</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-avatar">N</div>
+            <div>
+              <div class="testimonial-name">Dr. Nkem Ezeamama</div>
+              <div class="testimonial-cred">ER Physician · CEO, Pheenyx Capital</div>
+            </div>
+          </div>
+          <div class="testimonial-result">📈 2 properties · $0 additional W-2 hours required</div>
+        </div>
+        <div class="testimonial-card reveal">
+          <p class="testimonial-text">"I raised $2 million in just 2 weeks after implementing what I learned in the program. The systems work if you work them."</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-avatar">L</div>
+            <div>
+              <div class="testimonial-name">Dr. Lajide Lawoyin</div>
+              <div class="testimonial-cred">Physician · Multifamily Syndicator</div>
+            </div>
+          </div>
+          <div class="testimonial-result">💰 $2M raised in 14 days</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ VIDEO TESTIMONIALS #2 ══ -->
+  <section class="section" style="background: var(--ink-2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">More from the Cohort</span>
+        <h2 class="display-md">Results speak on their own terms.</h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="video-grid reveal">
+        <div class="video-card">
+          <video
+            src="https://pub-68989bd4060d43fa8b57ed2f93892825.r2.dev/Folake's%20Testimonial.mp4"
+            controls
+            preload="none"
+            poster="img/thumb-folake.jpg"
+            style="width:100%; display:block;"
+          ></video>
+          <div class="video-meta">
+            <div class="video-name">Folake</div>
+            <div class="video-title">Vanguard · 2024 Cohort</div>
+          </div>
+        </div>
+        <div class="video-card">
+          <div class="video-placeholder" style="aspect-ratio: 16/9; background: linear-gradient(160deg, #0d1628, #141e30);">
+            <div class="video-play-btn" style="width:56px; height:56px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#080D18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div class="video-meta">
+            <div class="video-name">Mentee Testimonial</div>
+            <div class="video-title">Vanguard · 2025 Cohort</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-grid-2" style="margin-top: 3rem;">
+        <div class="testimonial-card reveal">
+          <p class="testimonial-text">"The only thing I regret is not doing this sooner. I wasted years trying to figure it out alone. The network alone is worth the investment."</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-avatar">V</div>
+            <div>
+              <div class="testimonial-name">Vanguard Member</div>
+              <div class="testimonial-cred">2024 Cohort</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <p class="testimonial-text">"I didn't need another course. I needed someone to walk alongside me. That's exactly what Vanguard delivered — direct access, real accountability, real results."</p>
+          <div class="testimonial-meta">
+            <div class="testimonial-avatar">V</div>
+            <div>
+              <div class="testimonial-name">Vanguard Member</div>
+              <div class="testimonial-cred">2025 Cohort</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ AWARDS: Order of the Ninth Zero ══ -->
+  <section class="section awards-section" id="awards">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="award-crest">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <path d="M18 4l2.8 8.6H30l-7.4 5.4 2.8 8.6L18 22.2l-7.4 4.4 2.8-8.6L6 13.6h9.2L18 4z" stroke="#C9A84C" stroke-width="1.2" fill="rgba(201,168,76,0.1)"/>
+            <circle cx="18" cy="18" r="16" stroke="rgba(201,168,76,0.2)" stroke-width="0.8" stroke-dasharray="2 3"/>
+          </svg>
+        </div>
+        <span class="label">2026 Honorees</span>
+        <h2 class="display-lg">The Order of the<br><em>Ninth Zero Awards</em></h2>
+        <div class="gold-line"></div>
+        <p class="body-lg" style="max-width: 600px; margin: 0 auto;">Recognizing the Vanguard mentees who went above and beyond in 2026 — the ones who didn't just complete the program, but redefined what was possible within it.</p>
+      </div>
+
+      <div class="awards-masonry reveal">
+        <div class="award-photo">
+          <img src="img/award-Weekend-116.jpeg" alt="Order of the Ninth Zero Award 2026" />
+          <div class="award-photo-overlay"><span>2026 Honoree</span></div>
+        </div>
+        <div class="award-photo">
+          <img src="img/award-Weekend-120.jpeg" alt="Order of the Ninth Zero Award 2026" />
+          <div class="award-photo-overlay"><span>2026 Honoree</span></div>
+        </div>
+        <div class="award-photo">
+          <img src="img/award-Weekend-121.jpeg" alt="Order of the Ninth Zero Award 2026" />
+          <div class="award-photo-overlay"><span>2026 Honoree</span></div>
+        </div>
+        <div class="award-photo">
+          <img src="img/award-Weekend-122.jpeg" alt="Order of the Ninth Zero Award 2026" />
+          <div class="award-photo-overlay"><span>2026 Honoree</span></div>
+        </div>
+        <div class="award-photo">
+          <img src="img/award-Weekend-127.jpeg" alt="Order of the Ninth Zero Award 2026" />
+          <div class="award-photo-overlay"><span>2026 Honoree</span></div>
+        </div>
+      </div>
+
+      <div class="glass reveal" style="margin-top: 3.5rem; padding: 2.5rem; max-width: 680px; margin-left: auto; margin-right: auto; text-align: center; border-color: rgba(201,168,76,0.22);">
+        <span class="label" style="display:block; margin-bottom: 0.75rem;">About the Award</span>
+        <p class="body-md">The Ninth Zero Award is presented annually to Vanguard members who exemplified the program's core principle: that a single transaction — executed with precision — can redefine your financial trajectory. These are the people who did the work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHAT YOU GET ══ -->
+  <section class="section mesh-1" id="whats-included">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Program Deliverables</span>
+        <h2 class="display-lg">Everything you need.<br>Nothing you <em>don't.</em></h2>
+        <div class="gold-line"></div>
+        <p class="body-lg" style="max-width: 560px; margin: 0 auto;">Every element of Vanguard was built around one question: what does a high-income professional with limited time actually need to close their first $1M+ deal?</p>
+      </div>
+      <div class="deliverables-grid">
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Bi-weekly 1:1 Sessions with Co-Founders</strong><span>Direct strategy sessions with Leslie & Tenny — not a team member, not a coach. The founders.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Success Studio Access</strong><span>Your live accountability and execution environment — where strategy becomes action.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>MSA Analytica Tool</strong><span>Institutional-grade market analysis software (msanalytica.com) — included in your program.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Broker & Lender Network Access</strong><span>Warm introductions to vetted brokers, property managers, and capital consultants in your target market.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Partner Access on XSITE Deals</strong><span>Eligible Vanguard members can participate as partners on live XSITE Capital acquisitions.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Lifetime Legacy Multifamily Course</strong><span>Full access to the Legacy Multifamily Foundation Course (valued at $999) — yours to keep forever.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Deal, LOI & Template Library</strong><span>Every document you need: LOI templates, deal analysis frameworks, investor decks, operating agreements.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Underwriting & Deal Analysis Training</strong><span>Learn to evaluate any multifamily deal with institutional rigor — value-add, cash-out refi, syndication.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Capital Raising System</strong><span>A proven framework for raising private capital from your existing network — without cold outreach.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Complete Deal-Closing Playbook</strong><span>The exact sequence we use to take a deal from discovery to funding — every step documented.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Your Custom Investment Playbook</strong><span>A personalized wealth-building roadmap built around your income, goals, and timeline.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Exclusive WhatsApp Groups</strong><span>Real-time access to deal flow, market intelligence, and peer accountability from the full Vanguard network.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Direct Phone Access to Founders</strong><span>Not a support ticket. Not an email queue. A direct line to Leslie and Tenny when it matters most.</span></div>
+        </div>
+        <div class="deliverable-item reveal">
+          <div class="deliverable-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#080D18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="deliverable-text"><strong>Lifetime Access to Future Updates</strong><span>As the market evolves and new strategies emerge, your access evolves with it — at no additional cost.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRICING COMPARISON ══ -->
+  <section class="section" id="pricing" style="background: var(--ink-2);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label">Investment Options</span>
+        <h2 class="display-lg">Choose the level of<br><em>immersion</em> that fits<br>your ambition.</h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="pricing-compare-intro reveal">
+        <p class="body-md">Both tracks include direct founder access, the full toolkit, and the same network. The difference is depth of engagement and duration of support — because some goals require more runway.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Foundation Track -->
+        <div class="pricing-card glass">
+          <div class="pricing-header">
+            <span class="pricing-tier">Foundation Track</span>
+            <div class="pricing-name">Vanguard Core</div>
+            <div class="pricing-price">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">45,000</span>
+            </div>
+          </div>
+          <div class="pricing-body">
+            <div class="pricing-groups">
+              <div>
+                <span class="pricing-group-label">Mentorship & Access</span>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>12 months of direct mentorship</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Bi-weekly 1:1 sessions with Leslie & Tenny</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>3 months Success Studio</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Direct phone access to founders</div>
+              </div>
+              <div>
+                <span class="pricing-group-label">Tools & Technology</span>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>MSA Analytica — full platform access <span class="highlight">Included</span></div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Exclusive WhatsApp groups</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Lifetime Legacy Multifamily Course <span class="highlight">$999 value</span></div>
+              </div>
+              <div>
+                <span class="pricing-group-label">Network & Deals</span>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Broker, PM & consultant network</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>XSITE deal partnership access</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Deal, LOI & template library</div>
+              </div>
+              <div>
+                <span class="pricing-group-label">Training & Playbooks</span>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Underwriting & deal analysis training</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Capital raising system</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Complete deal-closing playbook</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Custom investment playbook</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Lifetime access to future updates</div>
+              </div>
+            </div>
+          </div>
+          <div class="pricing-cta">
+            <a href="#apply" class="btn-ghost">Apply for Core</a>
+            <p class="pricing-value-note">Payment plans available · Discovery call required</p>
+          </div>
+        </div>
+
+        <!-- Elite Track -->
+        <div class="pricing-card glass-strong featured">
+          <div class="pricing-badge">Most Comprehensive</div>
+          <div class="pricing-header">
+            <span class="pricing-tier">Elite Track</span>
+            <div class="pricing-name">Vanguard Elite</div>
+            <div class="pricing-price">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">65,000</span>
+            </div>
+          </div>
+          <div class="pricing-body">
+            <div class="pricing-groups">
+              <div>
+                <span class="pricing-group-label">Extended Mentorship & Access</span>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span><strong>18 months</strong> of direct mentorship <span class="highlight">+6 mo.</span></div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Bi-weekly 1:1 sessions with Leslie & Tenny for 18 months</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span><strong>6 months</strong> Success Studio <span class="highlight">2× duration</span></div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Direct phone access to founders</div>
+              </div>
+              <div>
+                <span class="pricing-group-label">Tools & Technology</span>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>MSA Analytica — full platform access <span class="highlight">Included</span></div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Exclusive WhatsApp groups</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Lifetime Legacy Multifamily Course <span class="highlight">$999 value</span></div>
+              </div>
+              <div>
+                <span class="pricing-group-label">Network & Deals</span>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Full broker, PM, consultant & lender network</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>XSITE deal partnership access</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Deal, LOI & template library</div>
+              </div>
+              <div>
+                <span class="pricing-group-label">Training, Playbooks & Legacy</span>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Underwriting & deal analysis training</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Proven capital raising system</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Complete deal-closing playbook</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Custom investment playbook</div>
+                <div class="pricing-feature"><span class="pricing-feature-icon">◆</span>Lifetime access to future updates</div>
+              </div>
+            </div>
+          </div>
+          <div class="pricing-cta">
+            <a href="#apply" class="btn-primary">Apply for Elite</a>
+            <p class="pricing-value-note">Payment plans available · Discovery call required</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOMO Note -->
+      <div class="glass reveal" style="margin-top: 3rem; padding: 2rem 2.5rem; max-width: 760px; margin-left: auto; margin-right: auto; text-align: center; border-color: rgba(201,168,76,0.22);">
+        <span class="label" style="margin-bottom: 0.75rem; display: block;">Important</span>
+        <p class="body-md">Both tracks require a qualification call. We don't accept every applicant — not because we're gatekeeping, but because we're genuinely committed to your outcome. We only accept members we are confident we can get across the finish line. <strong>3 seats remain for the 2026 cohort.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ GUARANTEE ══ -->
+  <section class="section mesh-1" id="guarantee">
+    <div class="container">
+      <div class="guarantee-wrap reveal">
+        <span class="label" style="display: block; text-align: center; margin-bottom: 2rem;">Risk Reversal</span>
+        <div class="guarantee-badge">
+          <span class="guarantee-badge-num">30</span>
+          <span class="guarantee-badge-text">Day Guarantee</span>
+        </div>
+        <div class="guarantee-card">
+          <h2 class="display-md" style="margin-bottom: 1.5rem;">The <em>No-Risk</em><br>Entry Guarantee.</h2>
+          <p class="body-lg" style="margin-bottom: 1.5rem;">If within 30 days you are not fully convinced that Vanguard is the most direct path to your first multifamily deal, we will issue a complete refund — no questions, no pressure, no negotiation.</p>
+          <p class="body-md" style="margin-bottom: 2rem;">And our commitment extends further: if you follow our system and do not close your first $1M+ deal within the program period, we will continue working with you at no additional cost until you do. We don't graduate you until you have results.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
+            <div style="text-align: center;">
+              <div class="glass-pill">30-Day Full Refund</div>
+            </div>
+            <div style="text-align: center;">
+              <div class="glass-pill">Continue Until You Close</div>
+            </div>
+            <div style="text-align: center;">
+              <div class="glass-pill">No Hidden Conditions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ APPLY + BOOK (side by side) ══ -->
+  <section class="section form-section" id="apply" style="background: var(--ink-2);">
+    <div class="container">
+
+      <!-- Shared header -->
+      <div class="section-header reveal">
+        <span class="label">Two Ways to Start</span>
+        <h2 class="display-lg">Take the<br><em>next step.</em></h2>
+        <div class="gold-line"></div>
+        <p class="body-md" style="max-width: 560px; margin: 0 auto;">Fill out the qualification form or book a direct call — whichever feels right. Both lead to the same place.</p>
+      </div>
+
+      <!-- Two-column layout -->
+      <div class="apply-grid reveal">
+
+        <!-- LEFT: Form -->
+        <div class="apply-col">
+          <div class="apply-col-header">
+            <span class="label">Option 1</span>
+            <h3 class="display-md" style="margin: 0.5rem 0 0.4rem;">Start the <em>conversation.</em></h3>
+            <p class="body-md">Not a sales form — a qualification step. We review every submission personally and respond within 48 hours.</p>
+          </div>
+          <div class="form-glass" style="margin-top: 1.5rem;">
+            <div data-fc-seamless="true" data-fc-key="7c02e3ee" style="max-width:500px;height:641.14px;margin:0 auto"></div>
+            <script src="https://app.formcrafts.com/embed.js"></script>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="apply-divider">
+          <div class="apply-divider-line"></div>
+          <span class="apply-divider-or">or</span>
+          <div class="apply-divider-line"></div>
+        </div>
+
+        <!-- RIGHT: Book a call -->
+        <div class="apply-col" id="book">
+          <div class="apply-col-header">
+            <span class="label">Option 2</span>
+            <h3 class="display-md" style="margin: 0.5rem 0 0.4rem;">Book a call with <em>Addie directly.</em></h3>
+            <p class="body-md">Prefer to talk first? Ask questions, explore fit, or just hear more before committing to the form.</p>
+          </div>
+          <div class="meeting-card" style="margin-top: 1.5rem; padding: 2.5rem 2rem;">
+            <div class="meeting-headshot">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(201,168,76,0.5)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+            <h4 class="display-md" style="font-size: 1.6rem; margin-bottom: 0.25rem;">Addie Agarwal</h4>
+            <p class="label" style="display: block; margin-bottom: 1.5rem;">Program Director · CTO, XSITE Capital</p>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem; text-align: left;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; color: var(--white-80);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                30-minute discovery call
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; color: var(--white-80);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                No pitch, no pressure
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; color: var(--white-80);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Typically available within 2 business days
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; color: var(--white-80);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.9L15 14M3 8h12v8H3a1 1 0 01-1-1V9a1 1 0 011-1z"/></svg>
+                Via Zoom
+              </div>
+            </div>
+            <a href="https://scheduler.zoom.us/addie-agarwal" target="_blank" rel="noopener" class="btn-primary" style="width: 100%; justify-content: center; display: flex;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Schedule a 30-Min Call
+            </a>
+            <p class="body-md" style="margin-top: 1rem; font-size: 0.76rem; text-align: center;">Only 3 seats remaining — schedule while they're available.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="container">
+      <div style="margin-bottom: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        <img src="Beyond 9 to 5---no-background-XSITE.png" alt="Beyond 9 to 5 Club by XSITE Capital" style="height: 48px; width: auto; display: block; opacity: 0.85;" />
+        <p style="font-family: var(--serif); font-size: 1.8rem; font-weight: 300; letter-spacing: 0.12em; background: linear-gradient(135deg, #C9A84C, #E4C880, #C9A84C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0;">Vanguard Mentorship Program</p>
+      </div>
+      <p>© 2026 XSITE Capital Investment · Beyond 9 to 5 Club · All rights reserved.</p>
+      <p style="margin-top: 0.5rem;">Built for the professional who is done trading time for money.</p>
+      <p style="margin-top: 1.5rem;">
+        <a href="mailto:info@xsitecapital.com" style="color: var(--gold-dim); font-size: 0.8rem;">info@xsitecapital.com</a>
+        &nbsp;·&nbsp;
+        <a href="https://xsitecapital.com" target="_blank" style="color: var(--gold-dim); font-size: 0.8rem;">xsitecapital.com</a>
+        &nbsp;·&nbsp;
+        <a href="https://learn.beyond9to5club.com" target="_blank" style="color: var(--gold-dim); font-size: 0.8rem;">beyond9to5club.com</a>
+      </p>
+      <p style="margin-top: 1rem; font-size: 0.72rem; color: rgba(255,255,255,0.15); max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.8;">
+        Results mentioned are from actual program participants and are not guaranteed. Real estate investing involves risk. Past performance is not indicative of future results. Consult with qualified financial and legal advisors before making any investment decision.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ══ STICKY BOTTOM BAR ══ -->
+  <div class="sticky-bottom" id="stickyBar">
+    <div class="sticky-text">
+      <strong>3 seats remaining in 2026 cohort</strong>
+      Applications close when seats fill.
+    </div>
+    <a href="#apply" class="btn-primary" style="white-space: nowrap; padding: 0.7rem 1.5rem; font-size: 0.78rem; flex-shrink: 0;">Apply Now →</a>
+  </div>
+
+  <script>
+    // ── Scroll reveal ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── Stagger children ──
+    document.querySelectorAll('.problem-grid, .deliverables-grid, .results-grid, .founders-grid, .testi-grid-2, .video-grid').forEach(grid => {
+      grid.querySelectorAll('.problem-card, .deliverable-item, .result-card, .founder-card, .testimonial-card, .video-card').forEach((card, i) => {
+        card.style.transitionDelay = `${i * 0.07}s`;
+      });
+    });
+
+    // ── Sticky bar ──
+    const heroSection = document.querySelector('.hero');
+    const stickyBar = document.getElementById('stickyBar');
+    window.addEventListener('scroll', () => {
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      if (heroBottom < 0) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    });
+
+    // ── Nav scroll behavior ──
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.style.background = 'rgba(8,13,24,0.92)';
+        nav.style.borderBottomColor = 'rgba(201,168,76,0.18)';
+      } else {
+        nav.style.background = 'rgba(8,13,24,0.6)';
+        nav.style.borderBottomColor = 'rgba(201,168,76,0.1)';
+      }
+    });
+
+    // ── Smooth anchor links with offset ──
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Source assets (processed versions are in /img)
+Award Photos/
+Community Photos/
+Founder Photos/
+
+# Reference PDFs (not needed for deployment)
+*.pdf
