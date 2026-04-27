@@ -378,6 +378,26 @@
       margin: 2rem 0;
     }
 
+    /* Conditional sections (show/hide based on goal selection) */
+    .conditional-section {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+    }
+    .conditional-section.visible { display: flex; }
+
+    /* Multi-select checkboxes reuse pill styles */
+    .pill-option input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0; height: 0;
+    }
+    .pill-option input[type="checkbox"]:checked + label {
+      background: rgba(201,168,76,0.15);
+      border-color: rgba(201,168,76,0.5);
+      color: var(--gold-light);
+    }
+
     /* Submit button */
     .btn-submit {
       display: flex;
@@ -623,105 +643,133 @@
             <div class="form-section-title">A few quick questions</div>
             <div class="form-section-sub">No right or wrong answers — just help us understand where you're starting from.</div>
 
-            <!-- Q1: Profession & Income -->
-            <div class="field-group two-col">
-              <div class="field">
-                <label for="profession">What's your profession? <span class="req">*</span></label>
-                <input type="text" id="profession" name="profession" placeholder="e.g. CRNA, Engineer, Attorney" />
-                <span class="field-error-msg" id="err-profession">Please tell us your profession.</span>
-              </div>
-              <div class="field">
-                <label for="income">Annual W-2 income range <span class="req">*</span></label>
-                <select id="income" name="income">
-                  <option value="" disabled selected>Select range</option>
-                  <option value="100-149k">$100K – $149K</option>
-                  <option value="150-199k">$150K – $199K</option>
-                  <option value="200-299k">$200K – $299K</option>
-                  <option value="300-499k">$300K – $499K</option>
-                  <option value="500k+">$500K+</option>
-                </select>
-                <span class="field-error-msg" id="err-income">Please select your income range.</span>
-              </div>
-            </div>
-
-            <!-- Q2: Capital -->
+            <!-- Q1: Goal -->
             <div class="field-group">
               <div class="field">
-                <label for="capital">How much capital do you have ready to deploy toward real estate in the next 12–18 months? <span class="req">*</span></label>
-                <select id="capital" name="capital">
-                  <option value="" disabled selected>Select range</option>
-                  <option value="under-50k">Under $50K</option>
-                  <option value="50-100k">$50K – $100K</option>
-                  <option value="100-250k">$100K – $250K</option>
-                  <option value="250-500k">$250K – $500K</option>
-                  <option value="500k+">$500K+</option>
-                </select>
-                <span class="field-error-msg" id="err-capital">Please select your capital range.</span>
-              </div>
-            </div>
-
-            <!-- Q3: RE Experience -->
-            <div class="field-group">
-              <div class="field">
-                <label>Have you invested in real estate before? <span class="req">*</span></label>
+                <label>What is your goal for this call? <span class="req">*</span></label>
                 <div class="pill-group">
                   <div class="pill-option">
-                    <input type="radio" name="re_experience" id="re-none" value="No experience yet" />
-                    <label for="re-none">No experience yet</label>
+                    <input type="radio" name="goal" id="goal-investing" value="Investing" />
+                    <label for="goal-investing">Investing</label>
                   </div>
                   <div class="pill-option">
-                    <input type="radio" name="re_experience" id="re-single" value="Single-family / residential" />
-                    <label for="re-single">Single-family / residential</label>
+                    <input type="radio" name="goal" id="goal-education" value="Education" />
+                    <label for="goal-education">Education</label>
                   </div>
                   <div class="pill-option">
-                    <input type="radio" name="re_experience" id="re-passive" value="Passive investor (syndications / REITs)" />
-                    <label for="re-passive">Passive investor (syndications / REITs)</label>
-                  </div>
-                  <div class="pill-option">
-                    <input type="radio" name="re_experience" id="re-multi" value="Multifamily (active)" />
-                    <label for="re-multi">Multifamily (active)</label>
+                    <input type="radio" name="goal" id="goal-both" value="Both" />
+                    <label for="goal-both">Both</label>
                   </div>
                 </div>
-                <span class="field-error-msg" id="err-re-exp">Please select your experience level.</span>
+                <span class="field-error-msg" id="err-goal">Please select your goal for this call.</span>
               </div>
             </div>
 
-            <!-- Q4: Biggest obstacle -->
-            <div class="field-group">
-              <div class="field">
-                <label>What's your #1 obstacle to getting into multifamily right now? <span class="req">*</span></label>
-                <div class="pill-group">
-                  <div class="pill-option">
-                    <input type="radio" name="obstacle" id="obs-time" value="Not enough time" />
-                    <label for="obs-time">Not enough time</label>
+            <!-- ── INVESTING branch ── -->
+            <div class="conditional-section" id="section-investing">
+              <div class="field-group" style="margin-top: 1rem;">
+                <div class="field">
+                  <label>How soon are you looking to invest? <span class="req">*</span></label>
+                  <div class="pill-group">
+                    <div class="pill-option">
+                      <input type="radio" name="invest_timeline" id="it-asap" value="As soon as an opportunity is available" />
+                      <label for="it-asap">As soon as an opportunity is available</label>
+                    </div>
+                    <div class="pill-option">
+                      <input type="radio" name="invest_timeline" id="it-1-3" value="1–3 months" />
+                      <label for="it-1-3">1–3 months</label>
+                    </div>
+                    <div class="pill-option">
+                      <input type="radio" name="invest_timeline" id="it-unsure" value="I'm not sure, I need more information" />
+                      <label for="it-unsure">I'm not sure, I need more information</label>
+                    </div>
                   </div>
-                  <div class="pill-option">
-                    <input type="radio" name="obstacle" id="obs-knowledge" value="Don't know where to start" />
-                    <label for="obs-knowledge">Don't know where to start</label>
-                  </div>
-                  <div class="pill-option">
-                    <input type="radio" name="obstacle" id="obs-capital" value="Access to capital" />
-                    <label for="obs-capital">Access to capital</label>
-                  </div>
-                  <div class="pill-option">
-                    <input type="radio" name="obstacle" id="obs-network" value="No network or deal flow" />
-                    <label for="obs-network">No network or deal flow</label>
-                  </div>
-                  <div class="pill-option">
-                    <input type="radio" name="obstacle" id="obs-confidence" value="Confidence / fear of getting it wrong" />
-                    <label for="obs-confidence">Fear of getting it wrong</label>
+                  <span class="field-error-msg" id="err-invest-timeline">Please select a timeline.</span>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <div class="field">
+                  <label>What experience do you have in investing? <span style="color:var(--white-30); font-weight:400; letter-spacing:0; text-transform:none;">(Select all that apply)</span></label>
+                  <div class="pill-group">
+                    <div class="pill-option">
+                      <input type="checkbox" name="invest_experience" id="exp-401k" value="401k" />
+                      <label for="exp-401k">401k</label>
+                    </div>
+                    <div class="pill-option">
+                      <input type="checkbox" name="invest_experience" id="exp-stocks" value="Stocks" />
+                      <label for="exp-stocks">Stocks</label>
+                    </div>
+                    <div class="pill-option">
+                      <input type="checkbox" name="invest_experience" id="exp-crypto" value="Crypto" />
+                      <label for="exp-crypto">Crypto</label>
+                    </div>
+                    <div class="pill-option">
+                      <input type="checkbox" name="invest_experience" id="exp-multifamily" value="Multifamily Investing" />
+                      <label for="exp-multifamily">Multifamily Investing</label>
+                    </div>
+                    <div class="pill-option">
+                      <input type="checkbox" name="invest_experience" id="exp-flip" value="Fix and Flip" />
+                      <label for="exp-flip">Fix and Flip</label>
+                    </div>
+                    <div class="pill-option">
+                      <input type="checkbox" name="invest_experience" id="exp-none" value="No Experience" />
+                      <label for="exp-none">No Experience</label>
+                    </div>
                   </div>
                 </div>
-                <span class="field-error-msg" id="err-obstacle">Please select your biggest obstacle.</span>
               </div>
             </div>
 
-            <!-- Q5: Why now -->
-            <div class="field-group">
-              <div class="field">
-                <label for="why-now">Why is now the right time for you? <span class="req">*</span></label>
-                <textarea id="why-now" name="why_now" placeholder="Be specific — what's changed or what's driving you to act now rather than later?"></textarea>
-                <span class="field-error-msg" id="err-why-now">Please share what's motivating you right now.</span>
+            <!-- ── EDUCATION branch ── -->
+            <div class="conditional-section" id="section-education">
+              <div class="field-group" style="margin-top: 1rem;">
+                <div class="field">
+                  <label>What are you most interested in? <span class="req">*</span></label>
+                  <div class="pill-group">
+                    <div class="pill-option">
+                      <input type="radio" name="edu_type" id="edu-group" value="90 Day Group Coaching" />
+                      <label for="edu-group">90 Day Group Coaching</label>
+                    </div>
+                    <div class="pill-option">
+                      <input type="radio" name="edu_type" id="edu-self" value="Self Paced Masterclass" />
+                      <label for="edu-self">Self Paced Masterclass</label>
+                    </div>
+                    <div class="pill-option">
+                      <input type="radio" name="edu_type" id="edu-coaching" value="12 Months 1:1 Coaching" />
+                      <label for="edu-coaching">12 Months 1:1 Coaching</label>
+                    </div>
+                    <div class="pill-option">
+                      <input type="radio" name="edu_type" id="edu-unsure" value="Not sure" />
+                      <label for="edu-unsure">Not sure</label>
+                    </div>
+                  </div>
+                  <span class="field-error-msg" id="err-edu-type">Please select an option.</span>
+                </div>
+              </div>
+
+              <!-- ── MENTORSHIP sub-branch (if 12 Months 1:1 selected) ── -->
+              <div class="conditional-section" id="section-mentorship">
+                <div class="field-group">
+                  <div class="field">
+                    <label>How soon are you willing to start? <span class="req">*</span></label>
+                    <div class="pill-group">
+                      <div class="pill-option">
+                        <input type="radio" name="mentor_timeline" id="mt-asap" value="As soon as an opportunity is available" />
+                        <label for="mt-asap">As soon as an opportunity is available</label>
+                      </div>
+                      <div class="pill-option">
+                        <input type="radio" name="mentor_timeline" id="mt-1-3" value="1–3 months" />
+                        <label for="mt-1-3">1–3 months</label>
+                      </div>
+                      <div class="pill-option">
+                        <input type="radio" name="mentor_timeline" id="mt-unsure" value="I'm not sure, I need more information" />
+                        <label for="mt-unsure">I'm not sure, I need more information</label>
+                      </div>
+                    </div>
+                    <span class="field-error-msg" id="err-mentor-timeline">Please select a timeline.</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -788,28 +836,67 @@
   </div>
 
   <script>
+    // ── Conditional section visibility ──
+    function getGoal() {
+      return document.querySelector('[name="goal"]:checked')?.value || '';
+    }
+
+    function updateConditionalSections() {
+      const goal = getGoal();
+      const showInvesting  = goal === 'Investing' || goal === 'Both';
+      const showEducation  = goal === 'Education'  || goal === 'Both';
+      const eduType        = document.querySelector('[name="edu_type"]:checked')?.value || '';
+      const showMentorship = showEducation && eduType === '12 Months 1:1 Coaching';
+
+      document.getElementById('section-investing').classList.toggle('visible', showInvesting);
+      document.getElementById('section-education').classList.toggle('visible', showEducation);
+      document.getElementById('section-mentorship').classList.toggle('visible', showMentorship);
+
+      // Clear hidden branch errors when switching
+      if (!showInvesting) {
+        document.getElementById('err-invest-timeline').classList.remove('visible');
+      }
+      if (!showEducation) {
+        document.getElementById('err-edu-type').classList.remove('visible');
+      }
+      if (!showMentorship) {
+        document.getElementById('err-mentor-timeline').classList.remove('visible');
+      }
+
+      updateSteps();
+    }
+
+    // Listen for goal + edu_type changes
+    document.querySelectorAll('[name="goal"], [name="edu_type"]').forEach(el => {
+      el.addEventListener('change', updateConditionalSections);
+    });
+
     // ── Step progress ──
     function updateSteps() {
-      const contact     = ['first-name','last-name','email','phone'];
-      const qualFields  = ['profession','income','capital'];
+      const goal         = getGoal();
+      const contactDone  = ['first-name','last-name','email','phone'].every(id => document.getElementById(id)?.value.trim());
+      const goalDone     = !!goal;
 
-      const contactDone = contact.every(id => document.getElementById(id)?.value.trim());
-      const qualDone    = qualFields.every(id => document.getElementById(id)?.value.trim());
-      const radiosDone  = document.querySelector('[name="re_experience"]:checked') &&
-                          document.querySelector('[name="obstacle"]:checked');
-      const whyDone     = document.getElementById('why-now')?.value.trim().length > 10;
+      const investDone   = (goal !== 'Investing' && goal !== 'Both') ||
+                           !!document.querySelector('[name="invest_timeline"]:checked');
+      const eduDone      = (goal !== 'Education' && goal !== 'Both') ||
+                           !!document.querySelector('[name="edu_type"]:checked');
+      const mentorDone   = document.querySelector('[name="edu_type"]:checked')?.value !== '12 Months 1:1 Coaching' ||
+                           !!document.querySelector('[name="mentor_timeline"]:checked');
+
+      const qualDone = goalDone && investDone && eduDone && mentorDone;
 
       const d1  = document.getElementById('dot-1');
       const d2  = document.getElementById('dot-2');
       const d3  = document.getElementById('dot-3');
       const lbl = document.getElementById('steps-label');
 
-      if (contactDone && qualDone && radiosDone && whyDone) {
+      if (contactDone && qualDone) {
         d1.className = 'step-dot done';
         d2.className = 'step-dot done';
         d3.className = 'step-dot active';
         lbl.textContent = 'Step 3 of 3 — Ready to submit';
-      } else if (contactDone && (qualDone || document.querySelector('[name="re_experience"]:checked'))) {
+      } else if (contactDone && goalDone) {
         d1.className = 'step-dot done';
         d2.className = 'step-dot active';
         d3.className = 'step-dot';
@@ -835,7 +922,7 @@
       document.getElementById(errId)?.classList.remove('visible');
     }
 
-    ['first-name','last-name','email','phone','profession','income','capital','why-now'].forEach(id => {
+    ['first-name','last-name','email','phone'].forEach(id => {
       document.getElementById(id)?.addEventListener('input', () => {
         document.getElementById(id).classList.remove('error');
         document.getElementById('err-' + id)?.classList.remove('visible');
@@ -846,6 +933,7 @@
     document.getElementById('qualify-form').addEventListener('submit', function(e) {
       e.preventDefault();
       let valid = true;
+      const goal = getGoal();
 
       // Contact
       if (!document.getElementById('first-name').value.trim()) { showError('first-name','err-first-name'); valid = false; } else clearError('first-name','err-first-name');
@@ -854,13 +942,35 @@
       if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { showError('email','err-email'); valid = false; } else clearError('email','err-email');
       if (!document.getElementById('phone').value.trim()) { showError('phone','err-phone'); valid = false; } else clearError('phone','err-phone');
 
-      // Qualification
-      if (!document.getElementById('profession').value.trim()) { showError('profession','err-profession'); valid = false; } else clearError('profession','err-profession');
-      if (!document.getElementById('income').value)  { showError('income','err-income');   valid = false; } else clearError('income','err-income');
-      if (!document.getElementById('capital').value) { showError('capital','err-capital'); valid = false; } else clearError('capital','err-capital');
-      if (!document.querySelector('[name="re_experience"]:checked')) { document.getElementById('err-re-exp').classList.add('visible');  valid = false; } else document.getElementById('err-re-exp').classList.remove('visible');
-      if (!document.querySelector('[name="obstacle"]:checked'))      { document.getElementById('err-obstacle').classList.add('visible'); valid = false; } else document.getElementById('err-obstacle').classList.remove('visible');
-      if (!document.getElementById('why-now').value.trim()) { showError('why-now','err-why-now'); valid = false; } else clearError('why-now','err-why-now');
+      // Goal required
+      if (!goal) { document.getElementById('err-goal').classList.add('visible'); valid = false; }
+      else        { document.getElementById('err-goal').classList.remove('visible'); }
+
+      // Investing branch
+      if (goal === 'Investing' || goal === 'Both') {
+        if (!document.querySelector('[name="invest_timeline"]:checked')) {
+          document.getElementById('err-invest-timeline').classList.add('visible'); valid = false;
+        } else {
+          document.getElementById('err-invest-timeline').classList.remove('visible');
+        }
+      }
+
+      // Education branch
+      if (goal === 'Education' || goal === 'Both') {
+        if (!document.querySelector('[name="edu_type"]:checked')) {
+          document.getElementById('err-edu-type').classList.add('visible'); valid = false;
+        } else {
+          document.getElementById('err-edu-type').classList.remove('visible');
+          // Mentorship sub-branch
+          if (document.querySelector('[name="edu_type"]:checked')?.value === '12 Months 1:1 Coaching') {
+            if (!document.querySelector('[name="mentor_timeline"]:checked')) {
+              document.getElementById('err-mentor-timeline').classList.add('visible'); valid = false;
+            } else {
+              document.getElementById('err-mentor-timeline').classList.remove('visible');
+            }
+          }
+        }
+      }
 
       if (!valid) {
         document.querySelector('.error, .field-error-msg.visible')
@@ -868,19 +978,22 @@
         return;
       }
 
+      // Gather experience checkboxes
+      const experience = [...document.querySelectorAll('[name="invest_experience"]:checked')]
+        .map(el => el.value);
+
       const data = {
-        first_name:    document.getElementById('first-name').value.trim(),
-        last_name:     document.getElementById('last-name').value.trim(),
-        email:         document.getElementById('email').value.trim(),
-        phone:         document.getElementById('phone').value.trim(),
-        profession:    document.getElementById('profession').value.trim(),
-        income:        document.getElementById('income').value,
-        capital:       document.getElementById('capital').value,
-        re_experience: document.querySelector('[name="re_experience"]:checked')?.value,
-        obstacle:      document.querySelector('[name="obstacle"]:checked')?.value,
-        why_now:       document.getElementById('why-now').value.trim(),
-        anything_else: document.getElementById('anything-else').value.trim(),
-        source:        document.getElementById('source').value,
+        first_name:       document.getElementById('first-name').value.trim(),
+        last_name:        document.getElementById('last-name').value.trim(),
+        email:            document.getElementById('email').value.trim(),
+        phone:            document.getElementById('phone').value.trim(),
+        goal:             goal,
+        invest_timeline:  document.querySelector('[name="invest_timeline"]:checked')?.value || null,
+        invest_experience: experience.length ? experience : null,
+        edu_type:         document.querySelector('[name="edu_type"]:checked')?.value || null,
+        mentor_timeline:  document.querySelector('[name="mentor_timeline"]:checked')?.value || null,
+        anything_else:    document.getElementById('anything-else').value.trim(),
+        source:           document.getElementById('source').value,
       };
 
       console.log('Vanguard Application:', data);
