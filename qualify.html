@@ -441,12 +441,17 @@
       display: none;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
-      min-height: 400px;
-      padding: 3rem;
+      padding: 2rem 0;
     }
     .success-screen.visible { display: flex; }
+
+    /* Calendly iframe blends with dark theme */
+    #calendly-embed iframe {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(201,168,76,0.12) !important;
+    }
     .success-icon {
       width: 72px;
       height: 72px;
@@ -811,24 +816,18 @@
           </form>
         </div>
 
-        <!-- ── Success ── -->
+        <!-- ── Success + Calendly ── -->
         <div class="success-screen" id="success-screen">
           <div class="success-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h2>Application <em>received.</em></h2>
-          <p>Thank you for applying to the 2026 Vanguard Cohort. We review every submission personally and will be in touch within 48 hours.</p>
-          <p>If you'd prefer to connect sooner, book a call directly with Addie below.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem;">
-            <a href="https://scheduler.zoom.us/addie-agarwal" target="_blank" rel="noopener" class="btn-submit" style="width: auto; text-decoration: none; display: inline-flex; margin-top: 0;">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Book a Call with Addie
-            </a>
-            <a href="index.html" class="btn-back-home">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-              Back to Vanguard
-            </a>
-          </div>
+          <h2>You're in.<br><em>Book your call.</em></h2>
+          <p>Your application is received. The next step is a quick guidance call — pick a time that works for you below.</p>
+          <div id="calendly-embed" style="width:100%; min-height:700px; margin-top: 1rem;"></div>
+          <a href="index.html" class="btn-back-home" style="margin-top: 2rem;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+            Back to Vanguard
+          </a>
         </div>
 
       </div>
@@ -999,10 +998,25 @@
       console.log('Vanguard Application:', data);
 
       document.getElementById('form-container').style.display = 'none';
-      document.getElementById('success-screen').classList.add('visible');
+      const successEl = document.getElementById('success-screen');
+      successEl.classList.add('visible');
+
+      // Init Calendly inline embed
+      Calendly.initInlineWidget({
+        url: 'https://calendly.com/d/cr3d-n9b-hrr/xsite-guidance-call',
+        parentElement: document.getElementById('calendly-embed'),
+        prefill: {
+          name:  data.first_name + ' ' + data.last_name,
+          email: data.email,
+        },
+        utm: {}
+      });
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 </body>
 </html>
