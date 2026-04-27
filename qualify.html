@@ -14,18 +14,14 @@
       --gold:        #C9A84C;
       --gold-light:  #E4C880;
       --gold-dim:    rgba(201, 168, 76, 0.35);
-      --gold-glow:   rgba(201, 168, 76, 0.12);
       --ink:         #080D18;
       --ink-2:       #0d1628;
       --ink-3:       #141e30;
       --ink-4:       #1c2840;
-      --slate:       #2a3a52;
       --white:       #ffffff;
       --white-80:    rgba(255,255,255,0.80);
       --white-60:    rgba(255,255,255,0.60);
       --white-30:    rgba(255,255,255,0.30);
-      --white-10:    rgba(255,255,255,0.06);
-      --glass-bg:    rgba(255,255,255,0.055);
       --glass-border:rgba(201,168,76,0.18);
       --radius-sm:   12px;
       --radius-md:   20px;
@@ -116,7 +112,7 @@
       min-height: calc(100vh - 64px);
     }
 
-    /* ── Left panel: context ── */
+    /* ── Left panel ── */
     .panel-left {
       background: linear-gradient(160deg, var(--ink-2) 0%, var(--ink-3) 100%);
       border-right: 1px solid rgba(201,168,76,0.1);
@@ -130,8 +126,7 @@
       overflow-y: auto;
     }
 
-    .panel-left .label {
-      font-family: var(--sans);
+    .panel-left .eyebrow {
       font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.22em;
@@ -143,84 +138,89 @@
 
     .panel-left h1 {
       font-family: var(--serif);
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
       font-weight: 300;
       line-height: 1.1;
       letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
     .panel-left h1 em {
       font-style: italic;
       color: var(--gold-light);
     }
 
-    .panel-left p {
-      font-size: 0.9rem;
-      line-height: 1.7;
+    .panel-left .intro {
+      font-size: 0.88rem;
+      line-height: 1.75;
       color: var(--white-60);
-      margin-bottom: 2rem;
-      max-width: 420px;
+      max-width: 400px;
+      margin-bottom: 2.5rem;
     }
 
-    /* Track selector display */
-    .track-display {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(201,168,76,0.22);
-      border-radius: var(--radius-md);
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 2rem;
-    }
-    .track-display .track-tier {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.25rem;
-    }
-    .track-display .track-name {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 0.15rem;
-    }
-    .track-display .track-price {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--gold-light);
-    }
-    .track-display .track-detail {
-      font-size: 0.78rem;
-      color: var(--white-60);
-      margin-top: 0.5rem;
-    }
-
-    /* Trust signals */
-    .trust-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-top: auto;
-      padding-top: 2rem;
-    }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.82rem;
-      color: var(--white-60);
-    }
-    .trust-item svg { flex-shrink: 0; }
-
-    /* Gold line */
     .gold-line {
       width: 48px;
       height: 1px;
       background: var(--gold);
       opacity: 0.6;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
     }
+
+    /* Outcome cards */
+    .outcomes {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .outcome-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: var(--radius-sm);
+    }
+    .outcome-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(201,168,76,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1rem;
+    }
+    .outcome-text strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+    .outcome-text span {
+      font-size: 0.78rem;
+      color: var(--white-60);
+      line-height: 1.5;
+    }
+
+    /* Trust strip */
+    .trust-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.78rem;
+      color: var(--white-60);
+    }
+    .trust-item svg { flex-shrink: 0; }
 
     /* ── Right panel: form ── */
     .panel-right {
@@ -246,7 +246,7 @@
       transition: background 0.3s;
     }
     .step-dot.active { background: var(--gold); }
-    .step-dot.done { background: rgba(201,168,76,0.4); }
+    .step-dot.done   { background: rgba(201,168,76,0.4); }
     .steps-label {
       margin-left: 0.75rem;
       font-size: 0.75rem;
@@ -254,7 +254,7 @@
       letter-spacing: 0.08em;
     }
 
-    /* Form sections */
+    /* Form section headings */
     .form-section-title {
       font-family: var(--serif);
       font-size: 1.6rem;
@@ -268,15 +268,13 @@
       margin-bottom: 1.75rem;
     }
 
-    /* Form fields */
+    /* Fields */
     .field-group {
       display: grid;
       gap: 1rem;
       margin-bottom: 1rem;
     }
-    .field-group.two-col {
-      grid-template-columns: 1fr 1fr;
-    }
+    .field-group.two-col { grid-template-columns: 1fr 1fr; }
 
     .field {
       display: flex;
@@ -290,10 +288,8 @@
       text-transform: uppercase;
       color: var(--white-60);
     }
-    .field label .req {
-      color: var(--gold);
-      margin-left: 2px;
-    }
+    .field label .req { color: var(--gold); margin-left: 2px; }
+
     .field input,
     .field select,
     .field textarea {
@@ -316,18 +312,10 @@
       background-position: right 1rem center;
       padding-right: 2.5rem;
     }
-    .field select option {
-      background: var(--ink-3);
-      color: var(--white);
-    }
-    .field textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
+    .field select option { background: var(--ink-3); color: var(--white); }
+    .field textarea { resize: vertical; min-height: 90px; }
     .field input::placeholder,
-    .field textarea::placeholder {
-      color: rgba(255,255,255,0.2);
-    }
+    .field textarea::placeholder { color: rgba(255,255,255,0.2); }
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
@@ -336,9 +324,8 @@
     }
     .field input.error,
     .field select.error,
-    .field textarea.error {
-      border-color: rgba(255, 90, 90, 0.6);
-    }
+    .field textarea.error { border-color: rgba(255, 90, 90, 0.6); }
+
     .field-error-msg {
       font-size: 0.72rem;
       color: #ff6b6b;
@@ -347,22 +334,18 @@
     }
     .field-error-msg.visible { display: block; }
 
-    /* Radio / checkbox pill group */
+    /* Pill radio groups */
     .pill-group {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
       margin-top: 0.2rem;
     }
-    .pill-option {
-      position: relative;
-    }
-    .pill-option input[type="radio"],
-    .pill-option input[type="checkbox"] {
+    .pill-option { position: relative; }
+    .pill-option input[type="radio"] {
       position: absolute;
       opacity: 0;
-      width: 0;
-      height: 0;
+      width: 0; height: 0;
     }
     .pill-option label {
       display: block;
@@ -388,84 +371,14 @@
       color: var(--white-80);
     }
 
-    /* Section divider */
+    /* Divider */
     .form-divider {
       height: 1px;
       background: rgba(255,255,255,0.06);
       margin: 2rem 0;
     }
 
-    /* Track toggle at top of form */
-    .track-toggle {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-    .track-btn {
-      position: relative;
-      padding: 1rem 1.25rem;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.03);
-      cursor: pointer;
-      transition: all 0.2s;
-      text-align: left;
-    }
-    .track-btn input {
-      position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    .track-btn-tier {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.15rem;
-    }
-    .track-btn-name {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 0.1rem;
-    }
-    .track-btn-price {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--white-60);
-    }
-    .track-btn.selected {
-      border-color: rgba(201,168,76,0.45);
-      background: rgba(201,168,76,0.07);
-    }
-    .track-btn.selected .track-btn-price {
-      color: var(--gold-light);
-    }
-    .track-btn-check {
-      position: absolute;
-      top: 0.85rem;
-      right: 0.85rem;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255,255,255,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
-    .track-btn.selected .track-btn-check {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-    .track-btn-check svg { opacity: 0; transition: opacity 0.2s; }
-    .track-btn.selected .track-btn-check svg { opacity: 1; }
-
-    /* CTA button */
+    /* Submit button */
     .btn-submit {
       display: flex;
       align-items: center;
@@ -494,11 +407,6 @@
       transform: translateY(-1px);
     }
     .btn-submit:active { transform: translateY(0); }
-    .btn-submit:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
 
     .form-note {
       font-size: 0.72rem;
@@ -508,7 +416,7 @@
       line-height: 1.5;
     }
 
-    /* ── Success state ── */
+    /* ── Success screen ── */
     .success-screen {
       display: none;
       flex-direction: column;
@@ -542,7 +450,7 @@
       color: var(--white-60);
       max-width: 380px;
       line-height: 1.7;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     .btn-back-home {
       display: inline-flex;
@@ -577,10 +485,6 @@
       }
       .panel-right { padding: 2rem 1.5rem 4rem; }
       .field-group.two-col { grid-template-columns: 1fr; }
-      .trust-list { padding-top: 1.5rem; margin-top: 1.5rem; }
-    }
-    @media (max-width: 480px) {
-      .track-toggle { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -600,47 +504,77 @@
   <div class="page-wrap">
     <div class="layout">
 
-      <!-- ══ LEFT PANEL ══ -->
+      <!-- ══ LEFT PANEL — The Dream ══ -->
       <div class="panel-left">
-        <span class="label">2026 Cohort · 3 Seats Remaining</span>
-        <h1>You're one step<br>closer to your<br>first <em>$1M deal.</em></h1>
+        <span class="eyebrow">2026 Cohort · 3 Seats Remaining</span>
+        <h1>Imagine waking up<br>to income you didn't<br>have to <em>trade time for.</em></h1>
         <div class="gold-line"></div>
-        <p>This isn't a generic sign-up form. We review every application personally and respond within 48 hours. If you're a fit, we'll schedule a call — no pressure, no pitch.</p>
+        <p class="intro">You've spent years building a career. Vanguard exists to make that career the launchpad — not the ceiling. Tell us about yourself and we'll reach out within 48 hours.</p>
 
-        <!-- Dynamic track display -->
-        <div class="track-display" id="left-track-display">
-          <div class="track-tier" id="left-track-tier">Foundation Track</div>
-          <div class="track-name" id="left-track-name">Vanguard Core</div>
-          <div class="track-price" id="left-track-price">$45,000</div>
-          <div class="track-detail" id="left-track-detail">12-month mentorship · Payment plans available</div>
+        <div class="outcomes">
+          <div class="outcome-item">
+            <div class="outcome-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="outcome-text">
+              <strong>Your first $1M+ multifamily asset</strong>
+              <span>A real deal. Real doors. Passive cash flow that works while you sleep.</span>
+            </div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="outcome-text">
+              <strong>Your W-2 starts working for you</strong>
+              <span>Depreciation offsets income. The tax code rewards asset owners — not earners.</span>
+            </div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="outcome-text">
+              <strong>Income that doesn't stop when you do</strong>
+              <span>Break free from the time-for-money trap — permanently.</span>
+            </div>
+          </div>
+          <div class="outcome-item">
+            <div class="outcome-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="outcome-text">
+              <strong>A network that opens doors</strong>
+              <span>Brokers, lenders, operators — the relationships most professionals never access.</span>
+            </div>
+          </div>
         </div>
 
         <div class="trust-list">
           <div class="trust-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            Reviewed personally within 48 hours
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Every application reviewed personally within 48 hours
           </div>
           <div class="trust-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            30-day full refund guarantee
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            30-day full refund guarantee — no questions asked
           </div>
           <div class="trust-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            We continue until you close — no extra cost
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            We work with you until you close — at no extra cost
           </div>
           <div class="trust-item">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
             Your information is never shared or sold
           </div>
         </div>
       </div>
 
-      <!-- ══ RIGHT PANEL ══ -->
+      <!-- ══ RIGHT PANEL — Form ══ -->
       <div class="panel-right">
 
-        <!-- Form -->
         <div id="form-container">
-          <!-- Steps bar -->
+          <!-- Progress bar -->
           <div class="steps-bar">
             <div class="step-dot active" id="dot-1"></div>
             <div class="step-dot" id="dot-2"></div>
@@ -650,34 +584,7 @@
 
           <form id="qualify-form" novalidate>
 
-            <!-- ── TRACK SELECTOR ── -->
-            <div class="form-section-title">Select your track</div>
-            <div class="form-section-sub">You can change this at any time before your discovery call.</div>
-
-            <div class="track-toggle">
-              <label class="track-btn" id="btn-core">
-                <input type="radio" name="track" value="core" id="track-core" />
-                <div class="track-btn-tier">Foundation Track</div>
-                <div class="track-btn-name">Vanguard Core</div>
-                <div class="track-btn-price">$45,000 · 12 months</div>
-                <div class="track-btn-check">
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
-              </label>
-              <label class="track-btn" id="btn-elite">
-                <input type="radio" name="track" value="elite" id="track-elite" />
-                <div class="track-btn-tier">Elite Track</div>
-                <div class="track-btn-name">Vanguard Elite</div>
-                <div class="track-btn-price">$65,000 · 18 months</div>
-                <div class="track-btn-check">
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
-              </label>
-            </div>
-
-            <div class="form-divider"></div>
-
-            <!-- ── SECTION 1: Contact Info ── -->
+            <!-- ── Contact ── -->
             <div class="form-section-title">About you</div>
             <div class="form-section-sub">Basic contact information so we can reach you.</div>
 
@@ -712,9 +619,9 @@
 
             <div class="form-divider"></div>
 
-            <!-- ── SECTION 2: Qualification Questions ── -->
-            <div class="form-section-title">Qualification questions</div>
-            <div class="form-section-sub">These help us understand where you are and whether Vanguard is the right fit. Be direct — there are no wrong answers.</div>
+            <!-- ── Qualification ── -->
+            <div class="form-section-title">A few quick questions</div>
+            <div class="form-section-sub">No right or wrong answers — just help us understand where you're starting from.</div>
 
             <!-- Q1: Profession & Income -->
             <div class="field-group two-col">
@@ -737,10 +644,10 @@
               </div>
             </div>
 
-            <!-- Q2: Capital available -->
+            <!-- Q2: Capital -->
             <div class="field-group">
               <div class="field">
-                <label for="capital">How much capital do you have ready to deploy toward a real estate investment in the next 12–18 months? <span class="req">*</span></label>
+                <label for="capital">How much capital do you have ready to deploy toward real estate in the next 12–18 months? <span class="req">*</span></label>
                 <select id="capital" name="capital">
                   <option value="" disabled selected>Select range</option>
                   <option value="under-50k">Under $50K</option>
@@ -749,7 +656,7 @@
                   <option value="250-500k">$250K – $500K</option>
                   <option value="500k+">$500K+</option>
                 </select>
-                <span class="field-error-msg" id="err-capital">Please select your available capital range.</span>
+                <span class="field-error-msg" id="err-capital">Please select your capital range.</span>
               </div>
             </div>
 
@@ -757,7 +664,7 @@
             <div class="field-group">
               <div class="field">
                 <label>Have you invested in real estate before? <span class="req">*</span></label>
-                <div class="pill-group" id="re-exp-group">
+                <div class="pill-group">
                   <div class="pill-option">
                     <input type="radio" name="re_experience" id="re-none" value="No experience yet" />
                     <label for="re-none">No experience yet</label>
@@ -783,7 +690,7 @@
             <div class="field-group">
               <div class="field">
                 <label>What's your #1 obstacle to getting into multifamily right now? <span class="req">*</span></label>
-                <div class="pill-group" id="obstacle-group">
+                <div class="pill-group">
                   <div class="pill-option">
                     <input type="radio" name="obstacle" id="obs-time" value="Not enough time" />
                     <label for="obs-time">Not enough time</label>
@@ -802,7 +709,7 @@
                   </div>
                   <div class="pill-option">
                     <input type="radio" name="obstacle" id="obs-confidence" value="Confidence / fear of getting it wrong" />
-                    <label for="obs-confidence">Confidence / fear of getting it wrong</label>
+                    <label for="obs-confidence">Fear of getting it wrong</label>
                   </div>
                 </div>
                 <span class="field-error-msg" id="err-obstacle">Please select your biggest obstacle.</span>
@@ -818,39 +725,16 @@
               </div>
             </div>
 
-            <!-- Q6: Investment readiness -->
-            <div class="field-group">
-              <div class="field">
-                <label>Are you able to invest in yourself at the program level? <span class="req">*</span></label>
-                <div class="pill-group" id="invest-group">
-                  <div class="pill-option">
-                    <input type="radio" name="investment_ready" id="inv-yes" value="Yes, I'm ready to invest" />
-                    <label for="inv-yes">Yes, I'm ready to invest</label>
-                  </div>
-                  <div class="pill-option">
-                    <input type="radio" name="investment_ready" id="inv-plan" value="Yes, with a payment plan" />
-                    <label for="inv-plan">Yes, with a payment plan</label>
-                  </div>
-                  <div class="pill-option">
-                    <input type="radio" name="investment_ready" id="inv-unsure" value="I need to discuss this on the call" />
-                    <label for="inv-unsure">Need to discuss on the call</label>
-                  </div>
-                </div>
-                <span class="field-error-msg" id="err-invest">Please select an option.</span>
-              </div>
-            </div>
-
             <div class="form-divider"></div>
 
-            <!-- Anything else -->
+            <!-- Optional -->
             <div class="field-group">
               <div class="field">
-                <label for="anything-else">Anything else you'd like us to know? <span style="color:var(--white-30); font-weight:400; letter-spacing:0">(Optional)</span></label>
+                <label for="anything-else">Anything else you'd like us to know? <span style="color:var(--white-30); font-weight:400; letter-spacing:0; text-transform:none;">(Optional)</span></label>
                 <textarea id="anything-else" name="anything_else" placeholder="Questions, context, or anything else on your mind…"></textarea>
               </div>
             </div>
 
-            <!-- How did you hear -->
             <div class="field-group">
               <div class="field">
                 <label for="source">How did you hear about Vanguard?</label>
@@ -879,14 +763,14 @@
           </form>
         </div>
 
-        <!-- ── SUCCESS SCREEN ── -->
+        <!-- ── Success ── -->
         <div class="success-screen" id="success-screen">
           <div class="success-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <h2>Application <em>received.</em></h2>
           <p>Thank you for applying to the 2026 Vanguard Cohort. We review every submission personally and will be in touch within 48 hours.</p>
-          <p style="margin-bottom: 0;">If you'd prefer to connect sooner, book a call directly with Addie below.</p>
+          <p>If you'd prefer to connect sooner, book a call directly with Addie below.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem;">
             <a href="https://scheduler.zoom.us/addie-agarwal" target="_blank" rel="noopener" class="btn-submit" style="width: auto; text-decoration: none; display: inline-flex; margin-top: 0;">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -904,125 +788,63 @@
   </div>
 
   <script>
-    // ── Read URL param to pre-select track ──
-    const params = new URLSearchParams(window.location.search);
-    const trackParam = params.get('track'); // 'core' or 'elite'
-
-    function selectTrack(val) {
-      const btnCore  = document.getElementById('btn-core');
-      const btnElite = document.getElementById('btn-elite');
-      const coreInput  = document.getElementById('track-core');
-      const eliteInput = document.getElementById('track-elite');
-
-      // Left panel update
-      const tier   = document.getElementById('left-track-tier');
-      const name   = document.getElementById('left-track-name');
-      const price  = document.getElementById('left-track-price');
-      const detail = document.getElementById('left-track-detail');
-
-      if (val === 'elite') {
-        btnElite.classList.add('selected');
-        btnCore.classList.remove('selected');
-        eliteInput.checked = true;
-        coreInput.checked  = false;
-        tier.textContent   = 'Elite Track';
-        name.textContent   = 'Vanguard Elite';
-        price.textContent  = '$65,000';
-        detail.textContent = '18-month mentorship · Payment plans available';
-      } else {
-        btnCore.classList.add('selected');
-        btnElite.classList.remove('selected');
-        coreInput.checked  = true;
-        eliteInput.checked = false;
-        tier.textContent   = 'Foundation Track';
-        name.textContent   = 'Vanguard Core';
-        price.textContent  = '$45,000';
-        detail.textContent = '12-month mentorship · Payment plans available';
-      }
-    }
-
-    // Init from URL
-    if (trackParam === 'elite') {
-      selectTrack('elite');
-    } else {
-      selectTrack('core');
-    }
-
-    // Click handlers for track buttons
-    document.getElementById('btn-core').addEventListener('click', () => selectTrack('core'));
-    document.getElementById('btn-elite').addEventListener('click', () => selectTrack('elite'));
-
-    // ── Step progress indicator ──
+    // ── Step progress ──
     function updateSteps() {
-      const form = document.getElementById('qualify-form');
-      const fields = form.querySelectorAll('input, select, textarea');
-      let filled = 0;
-      let total = 6; // rough sections
-
-      const contact = ['first-name','last-name','email','phone'];
-      const qualify = ['profession','income','capital'];
-      const answers = ['why-now'];
+      const contact     = ['first-name','last-name','email','phone'];
+      const qualFields  = ['profession','income','capital'];
 
       const contactDone = contact.every(id => document.getElementById(id)?.value.trim());
-      const qualifyDone = qualify.every(id => document.getElementById(id)?.value.trim());
+      const qualDone    = qualFields.every(id => document.getElementById(id)?.value.trim());
       const radiosDone  = document.querySelector('[name="re_experience"]:checked') &&
-                          document.querySelector('[name="obstacle"]:checked') &&
-                          document.querySelector('[name="investment_ready"]:checked');
+                          document.querySelector('[name="obstacle"]:checked');
       const whyDone     = document.getElementById('why-now')?.value.trim().length > 10;
 
-      const d1 = document.getElementById('dot-1');
-      const d2 = document.getElementById('dot-2');
-      const d3 = document.getElementById('dot-3');
+      const d1  = document.getElementById('dot-1');
+      const d2  = document.getElementById('dot-2');
+      const d3  = document.getElementById('dot-3');
       const lbl = document.getElementById('steps-label');
 
-      if (contactDone && qualifyDone && radiosDone && whyDone) {
-        d1.classList.add('done'); d1.classList.remove('active');
-        d2.classList.add('done'); d2.classList.remove('active');
-        d3.classList.add('active');
+      if (contactDone && qualDone && radiosDone && whyDone) {
+        d1.className = 'step-dot done';
+        d2.className = 'step-dot done';
+        d3.className = 'step-dot active';
         lbl.textContent = 'Step 3 of 3 — Ready to submit';
-      } else if (contactDone && (qualifyDone || document.querySelector('[name="re_experience"]:checked'))) {
-        d1.classList.add('done'); d1.classList.remove('active');
-        d2.classList.add('active');
-        d3.classList.remove('active');
+      } else if (contactDone && (qualDone || document.querySelector('[name="re_experience"]:checked'))) {
+        d1.className = 'step-dot done';
+        d2.className = 'step-dot active';
+        d3.className = 'step-dot';
         lbl.textContent = 'Step 2 of 3';
       } else {
-        d1.classList.add('active');
-        d2.classList.remove('active');
-        d3.classList.remove('active');
+        d1.className = 'step-dot active';
+        d2.className = 'step-dot';
+        d3.className = 'step-dot';
         lbl.textContent = 'Step 1 of 3';
       }
     }
 
-    document.getElementById('qualify-form').addEventListener('input', updateSteps);
+    document.getElementById('qualify-form').addEventListener('input',  updateSteps);
     document.getElementById('qualify-form').addEventListener('change', updateSteps);
 
-    // ── Validation & Submit ──
+    // ── Validation helpers ──
     function showError(fieldId, errId) {
-      const field = document.getElementById(fieldId);
-      const err   = document.getElementById(errId);
-      if (field) field.classList.add('error');
-      if (err)   err.classList.add('visible');
+      document.getElementById(fieldId)?.classList.add('error');
+      document.getElementById(errId)?.classList.add('visible');
     }
     function clearError(fieldId, errId) {
-      const field = document.getElementById(fieldId);
-      const err   = document.getElementById(errId);
-      if (field) field.classList.remove('error');
-      if (err)   err.classList.remove('visible');
+      document.getElementById(fieldId)?.classList.remove('error');
+      document.getElementById(errId)?.classList.remove('visible');
     }
 
-    // Clear errors on interaction
     ['first-name','last-name','email','phone','profession','income','capital','why-now'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.addEventListener('input', () => {
-        el.classList.remove('error');
-        const errEl = document.getElementById('err-' + id);
-        if (errEl) errEl.classList.remove('visible');
+      document.getElementById(id)?.addEventListener('input', () => {
+        document.getElementById(id).classList.remove('error');
+        document.getElementById('err-' + id)?.classList.remove('visible');
       });
     });
 
+    // ── Submit ──
     document.getElementById('qualify-form').addEventListener('submit', function(e) {
       e.preventDefault();
-
       let valid = true;
 
       // Contact
@@ -1034,44 +856,37 @@
 
       // Qualification
       if (!document.getElementById('profession').value.trim()) { showError('profession','err-profession'); valid = false; } else clearError('profession','err-profession');
-      if (!document.getElementById('income').value)    { showError('income','err-income');   valid = false; } else clearError('income','err-income');
-      if (!document.getElementById('capital').value)   { showError('capital','err-capital'); valid = false; } else clearError('capital','err-capital');
-      if (!document.querySelector('[name="re_experience"]:checked'))  { document.getElementById('err-re-exp').classList.add('visible');  valid = false; } else document.getElementById('err-re-exp').classList.remove('visible');
-      if (!document.querySelector('[name="obstacle"]:checked'))       { document.getElementById('err-obstacle').classList.add('visible');  valid = false; } else document.getElementById('err-obstacle').classList.remove('visible');
-      if (!document.getElementById('why-now').value.trim())  { showError('why-now','err-why-now'); valid = false; } else clearError('why-now','err-why-now');
-      if (!document.querySelector('[name="investment_ready"]:checked')) { document.getElementById('err-invest').classList.add('visible'); valid = false; } else document.getElementById('err-invest').classList.remove('visible');
+      if (!document.getElementById('income').value)  { showError('income','err-income');   valid = false; } else clearError('income','err-income');
+      if (!document.getElementById('capital').value) { showError('capital','err-capital'); valid = false; } else clearError('capital','err-capital');
+      if (!document.querySelector('[name="re_experience"]:checked')) { document.getElementById('err-re-exp').classList.add('visible');  valid = false; } else document.getElementById('err-re-exp').classList.remove('visible');
+      if (!document.querySelector('[name="obstacle"]:checked'))      { document.getElementById('err-obstacle').classList.add('visible'); valid = false; } else document.getElementById('err-obstacle').classList.remove('visible');
+      if (!document.getElementById('why-now').value.trim()) { showError('why-now','err-why-now'); valid = false; } else clearError('why-now','err-why-now');
 
       if (!valid) {
-        // Scroll to first error
-        const firstErr = document.querySelector('.error, .field-error-msg.visible');
-        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.querySelector('.error, .field-error-msg.visible')
+          ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
 
-      // Gather data
       const data = {
-        track:            document.querySelector('[name="track"]:checked')?.value || 'core',
-        first_name:       document.getElementById('first-name').value.trim(),
-        last_name:        document.getElementById('last-name').value.trim(),
-        email:            document.getElementById('email').value.trim(),
-        phone:            document.getElementById('phone').value.trim(),
-        profession:       document.getElementById('profession').value.trim(),
-        income:           document.getElementById('income').value,
-        capital:          document.getElementById('capital').value,
-        re_experience:    document.querySelector('[name="re_experience"]:checked')?.value,
-        obstacle:         document.querySelector('[name="obstacle"]:checked')?.value,
-        why_now:          document.getElementById('why-now').value.trim(),
-        investment_ready: document.querySelector('[name="investment_ready"]:checked')?.value,
-        anything_else:    document.getElementById('anything-else').value.trim(),
-        source:           document.getElementById('source').value,
+        first_name:    document.getElementById('first-name').value.trim(),
+        last_name:     document.getElementById('last-name').value.trim(),
+        email:         document.getElementById('email').value.trim(),
+        phone:         document.getElementById('phone').value.trim(),
+        profession:    document.getElementById('profession').value.trim(),
+        income:        document.getElementById('income').value,
+        capital:       document.getElementById('capital').value,
+        re_experience: document.querySelector('[name="re_experience"]:checked')?.value,
+        obstacle:      document.querySelector('[name="obstacle"]:checked')?.value,
+        why_now:       document.getElementById('why-now').value.trim(),
+        anything_else: document.getElementById('anything-else').value.trim(),
+        source:        document.getElementById('source').value,
       };
 
       console.log('Vanguard Application:', data);
 
-      // Show success
       document.getElementById('form-container').style.display = 'none';
-      const success = document.getElementById('success-screen');
-      success.classList.add('visible');
+      document.getElementById('success-screen').classList.add('visible');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
