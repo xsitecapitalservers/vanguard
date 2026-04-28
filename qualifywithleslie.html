@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Call with Leslie — Vanguard | XSITE Capital</title>
+  <meta name="description" content="Tell us a little about yourself, then book your XSITE guidance call with Leslie Awasom." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E4C880;
+      --ink:         #080D18;
+      --ink-2:       #0d1628;
+      --ink-3:       #141e30;
+      --white:       #ffffff;
+      --white-80:    rgba(255,255,255,0.80);
+      --white-60:    rgba(255,255,255,0.60);
+      --white-30:    rgba(255,255,255,0.30);
+      --radius-sm:   12px;
+      --radius-md:   20px;
+      --radius-lg:   32px;
+      --serif:       'Cormorant Garamond', Georgia, serif;
+      --sans:        'Inter', system-ui, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.4;
+    }
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 15% 10%, rgba(201,168,76,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 85% 80%, rgba(13,22,40,0.8) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(8,13,24,0.85);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      height: 64px; display: flex; align-items: center; justify-content: center;
+    }
+
+    .page-wrap { position: relative; z-index: 1; min-height: 100vh; padding-top: 64px; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 64px);
+    }
+
+    /* Left panel */
+    .panel-left {
+      background: linear-gradient(160deg, var(--ink-2) 0%, var(--ink-3) 100%);
+      border-right: 1px solid rgba(201,168,76,0.1);
+      padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+      display: flex; flex-direction: column; justify-content: center;
+      position: sticky; top: 64px;
+      height: calc(100vh - 64px); overflow-y: auto;
+    }
+    .eyebrow {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 1.5rem; display: block;
+    }
+
+    /* Founder feature */
+    .founder-feature {
+      display: flex; align-items: center; gap: 1.25rem;
+      margin-bottom: 2rem;
+      padding: 1.25rem 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius-md);
+    }
+    .founder-photo {
+      width: 68px; height: 68px; border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(201,168,76,0.4);
+      flex-shrink: 0;
+    }
+    .founder-info-name {
+      font-family: var(--serif); font-size: 1.4rem; font-weight: 400;
+      color: var(--white); line-height: 1.2; margin-bottom: 0.2rem;
+    }
+    .founder-info-title {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold);
+    }
+
+    .panel-left h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; line-height: 1.1; letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+    .panel-left h1 em { font-style: italic; color: var(--gold-light); }
+    .panel-left .intro {
+      font-size: 0.88rem; line-height: 1.75; color: var(--white-60);
+      max-width: 400px; margin-bottom: 2rem;
+    }
+    .gold-line { width: 48px; height: 1px; background: var(--gold); opacity: 0.6; margin-bottom: 1.75rem; }
+
+    .trust-list { display: flex; flex-direction: column; gap: 0.6rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .trust-item { display: flex; align-items: center; gap: 0.65rem; font-size: 0.78rem; color: var(--white-60); }
+    .trust-item svg { flex-shrink: 0; }
+
+    /* Right panel */
+    .panel-right {
+      background: var(--ink);
+      padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+      display: flex; flex-direction: column; justify-content: flex-start;
+    }
+
+    /* Steps */
+    .steps-bar { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2.5rem; }
+    .step-dot { width: 28px; height: 3px; border-radius: 999px; background: rgba(255,255,255,0.08); transition: background 0.3s; }
+    .step-dot.active { background: var(--gold); }
+    .step-dot.done   { background: rgba(201,168,76,0.4); }
+    .steps-label { margin-left: 0.75rem; font-size: 0.75rem; color: var(--white-30); letter-spacing: 0.08em; }
+
+    .form-section-title { font-family: var(--serif); font-size: 1.6rem; font-weight: 300; color: var(--white); margin-bottom: 0.35rem; }
+    .form-section-sub { font-size: 0.82rem; color: var(--white-60); margin-bottom: 1.75rem; }
+
+    .field-group { display: grid; gap: 1rem; margin-bottom: 1rem; }
+    .field-group.two-col { grid-template-columns: 1fr 1fr; }
+    .field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .field label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--white-60); }
+    .field label .req { color: var(--gold); margin-left: 2px; }
+
+    .field input, .field select, .field textarea {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm); padding: 0.8rem 1rem;
+      font-family: var(--sans); font-size: 0.9rem; color: var(--white);
+      transition: border-color 0.2s, background 0.2s; outline: none; width: 100%; -webkit-appearance: none;
+    }
+    .field select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(201,168,76,0.6)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem;
+    }
+    .field select option { background: var(--ink-3); color: var(--white); }
+    .field textarea { resize: vertical; min-height: 90px; }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: rgba(201,168,76,0.5); background: rgba(255,255,255,0.065); }
+    .field input.error, .field select.error, .field textarea.error { border-color: rgba(255,90,90,0.6); }
+    .field-error-msg { font-size: 0.72rem; color: #ff6b6b; margin-top: 0.2rem; display: none; }
+    .field-error-msg.visible { display: block; }
+
+    .pill-group { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.2rem; }
+    .pill-option { position: relative; }
+    .pill-option input[type="radio"], .pill-option input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+    .pill-option label {
+      display: block; padding: 0.45rem 1rem; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03);
+      font-size: 0.8rem; font-weight: 500; color: var(--white-60); cursor: pointer; transition: all 0.2s;
+    }
+    .pill-option input:checked + label { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.5); color: var(--gold-light); }
+    .pill-option label:hover { border-color: rgba(201,168,76,0.3); color: var(--white-80); }
+
+    .form-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 2rem 0; }
+
+    .conditional-section { display: none; flex-direction: column; gap: 0; }
+    .conditional-section.visible { display: flex; }
+
+    .btn-submit {
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      width: 100%; padding: 1rem 2rem; border-radius: var(--radius-md); border: none;
+      background: linear-gradient(135deg, #C9A84C 0%, #E4C880 50%, #C9A84C 100%);
+      background-size: 200% auto; color: var(--ink); font-family: var(--sans);
+      font-size: 0.88rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; transition: background-position 0.4s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(201,168,76,0.2); margin-top: 1.75rem;
+    }
+    .btn-submit:hover { background-position: right center; box-shadow: 0 6px 32px rgba(201,168,76,0.35); transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); }
+    .form-note { font-size: 0.72rem; color: var(--white-30); text-align: center; margin-top: 1rem; line-height: 1.5; }
+
+    /* Success */
+    .success-screen { display: none; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; padding: 2rem 0; }
+    .success-screen.visible { display: flex; }
+    .success-icon { width: 72px; height: 72px; border-radius: 50%; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+    .success-screen h2 { font-family: var(--serif); font-size: 2rem; font-weight: 300; margin-bottom: 0.75rem; }
+    .success-screen h2 em { font-style: italic; color: var(--gold-light); }
+    .success-screen p { font-size: 0.88rem; color: var(--white-60); max-width: 400px; line-height: 1.7; margin-bottom: 1rem; }
+    #calendly-embed { width: 100%; min-height: 700px; margin-top: 1.5rem; }
+    #calendly-embed iframe { border-radius: var(--radius-md); border: 1px solid rgba(201,168,76,0.12) !important; }
+
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; }
+      .panel-left { position: static; height: auto; padding: 2.5rem 1.5rem; }
+      .panel-right { padding: 2rem 1.5rem 4rem; }
+      .field-group.two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <img src="Beyond 9 to 5---no-background-XSITE.png" alt="XSITE Capital" style="height: 34px; width: auto;" />
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="layout">
+
+      <!-- LEFT PANEL -->
+      <div class="panel-left">
+        <span class="eyebrow">XSITE Capital · Guidance Call</span>
+
+        <div class="founder-feature">
+          <img class="founder-photo" src="img/founder-leslie.jpg" alt="Leslie Awasom" />
+          <div>
+            <div class="founder-info-name">Leslie Awasom</div>
+            <div class="founder-info-title">COO · XSITE Capital</div>
+          </div>
+        </div>
+
+        <h1>Let's talk about<br>your path to<br><em>passive income.</em></h1>
+        <div class="gold-line"></div>
+        <p class="intro">Fill in a few details below and Leslie will walk you through exactly how XSITE Capital can help you close your first multifamily deal — on your timeline, at your pace.</p>
+
+        <div class="trust-list">
+          <div class="trust-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            No pitch, no pressure — just a real conversation
+          </div>
+          <div class="trust-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            30-minute call, focused on your goals
+          </div>
+          <div class="trust-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            30-day full refund guarantee if you join
+          </div>
+          <div class="trust-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Your information is never shared or sold
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="panel-right">
+
+        <div id="form-container">
+          <div class="steps-bar">
+            <div class="step-dot active" id="dot-1"></div>
+            <div class="step-dot" id="dot-2"></div>
+            <div class="step-dot" id="dot-3"></div>
+            <span class="steps-label" id="steps-label">Step 1 of 3</span>
+          </div>
+
+          <form id="qualify-form" novalidate>
+
+            <div class="form-section-title">About you</div>
+            <div class="form-section-sub">Basic contact information so Leslie can reach you.</div>
+
+            <div class="field-group two-col">
+              <div class="field">
+                <label for="first-name">First name <span class="req">*</span></label>
+                <input type="text" id="first-name" name="first_name" placeholder="Jane" autocomplete="given-name" />
+                <span class="field-error-msg" id="err-first-name">Please enter your first name.</span>
+              </div>
+              <div class="field">
+                <label for="last-name">Last name <span class="req">*</span></label>
+                <input type="text" id="last-name" name="last_name" placeholder="Smith" autocomplete="family-name" />
+                <span class="field-error-msg" id="err-last-name">Please enter your last name.</span>
+              </div>
+            </div>
+            <div class="field-group">
+              <div class="field">
+                <label for="email">Email address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" />
+                <span class="field-error-msg" id="err-email">Please enter a valid email address.</span>
+              </div>
+            </div>
+            <div class="field-group">
+              <div class="field">
+                <label for="phone">Phone number <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" />
+                <span class="field-error-msg" id="err-phone">Please enter your phone number.</span>
+              </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <div class="form-section-title">A few quick questions</div>
+            <div class="form-section-sub">No right or wrong answers — just help us understand where you're starting from.</div>
+
+            <div class="field-group">
+              <div class="field">
+                <label>What is your goal for this call? <span class="req">*</span></label>
+                <div class="pill-group">
+                  <div class="pill-option"><input type="radio" name="goal" id="goal-investing" value="Investing" /><label for="goal-investing">Investing</label></div>
+                  <div class="pill-option"><input type="radio" name="goal" id="goal-education" value="Education" /><label for="goal-education">Education</label></div>
+                  <div class="pill-option"><input type="radio" name="goal" id="goal-both" value="Both" /><label for="goal-both">Both</label></div>
+                </div>
+                <span class="field-error-msg" id="err-goal">Please select your goal for this call.</span>
+              </div>
+            </div>
+
+            <!-- Investing branch -->
+            <div class="conditional-section" id="section-investing">
+              <div class="field-group" style="margin-top:1rem;">
+                <div class="field">
+                  <label>How soon are you looking to invest? <span class="req">*</span></label>
+                  <div class="pill-group">
+                    <div class="pill-option"><input type="radio" name="invest_timeline" id="it-asap" value="As soon as an opportunity is available" /><label for="it-asap">As soon as an opportunity is available</label></div>
+                    <div class="pill-option"><input type="radio" name="invest_timeline" id="it-1-3" value="1–3 months" /><label for="it-1-3">1–3 months</label></div>
+                    <div class="pill-option"><input type="radio" name="invest_timeline" id="it-unsure" value="I'm not sure, I need more information" /><label for="it-unsure">I'm not sure, I need more information</label></div>
+                  </div>
+                  <span class="field-error-msg" id="err-invest-timeline">Please select a timeline.</span>
+                </div>
+              </div>
+              <div class="field-group">
+                <div class="field">
+                  <label>What experience do you have in investing? <span style="color:var(--white-30);font-weight:400;letter-spacing:0;text-transform:none;">(Select all that apply)</span></label>
+                  <div class="pill-group">
+                    <div class="pill-option"><input type="checkbox" name="invest_experience" id="exp-401k" value="401k" /><label for="exp-401k">401k</label></div>
+                    <div class="pill-option"><input type="checkbox" name="invest_experience" id="exp-stocks" value="Stocks" /><label for="exp-stocks">Stocks</label></div>
+                    <div class="pill-option"><input type="checkbox" name="invest_experience" id="exp-crypto" value="Crypto" /><label for="exp-crypto">Crypto</label></div>
+                    <div class="pill-option"><input type="checkbox" name="invest_experience" id="exp-multifamily" value="Multifamily Investing" /><label for="exp-multifamily">Multifamily Investing</label></div>
+                    <div class="pill-option"><input type="checkbox" name="invest_experience" id="exp-flip" value="Fix and Flip" /><label for="exp-flip">Fix and Flip</label></div>
+                    <div class="pill-option"><input type="checkbox" name="invest_experience" id="exp-none" value="No Experience" /><label for="exp-none">No Experience</label></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education branch -->
+            <div class="conditional-section" id="section-education">
+              <div class="field-group" style="margin-top:1rem;">
+                <div class="field">
+                  <label>What are you most interested in? <span class="req">*</span></label>
+                  <div class="pill-group">
+                    <div class="pill-option"><input type="radio" name="edu_type" id="edu-group" value="90 Day Group Coaching" /><label for="edu-group">90 Day Group Coaching</label></div>
+                    <div class="pill-option"><input type="radio" name="edu_type" id="edu-self" value="Self Paced Masterclass" /><label for="edu-self">Self Paced Masterclass</label></div>
+                    <div class="pill-option"><input type="radio" name="edu_type" id="edu-coaching" value="12 Months 1:1 Coaching" /><label for="edu-coaching">12 Months 1:1 Coaching</label></div>
+                    <div class="pill-option"><input type="radio" name="edu_type" id="edu-unsure" value="Not sure" /><label for="edu-unsure">Not sure</label></div>
+                  </div>
+                  <span class="field-error-msg" id="err-edu-type">Please select an option.</span>
+                </div>
+              </div>
+              <div class="conditional-section" id="section-mentorship">
+                <div class="field-group">
+                  <div class="field">
+                    <label>How soon are you willing to start? <span class="req">*</span></label>
+                    <div class="pill-group">
+                      <div class="pill-option"><input type="radio" name="mentor_timeline" id="mt-asap" value="As soon as an opportunity is available" /><label for="mt-asap">As soon as an opportunity is available</label></div>
+                      <div class="pill-option"><input type="radio" name="mentor_timeline" id="mt-1-3" value="1–3 months" /><label for="mt-1-3">1–3 months</label></div>
+                      <div class="pill-option"><input type="radio" name="mentor_timeline" id="mt-unsure" value="I'm not sure, I need more information" /><label for="mt-unsure">I'm not sure, I need more information</label></div>
+                    </div>
+                    <span class="field-error-msg" id="err-mentor-timeline">Please select a timeline.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <div class="field-group">
+              <div class="field">
+                <label for="anything-else">Anything else you'd like Leslie to know? <span style="color:var(--white-30);font-weight:400;letter-spacing:0;text-transform:none;">(Optional)</span></label>
+                <textarea id="anything-else" name="anything_else" placeholder="Questions, context, or anything else on your mind…"></textarea>
+              </div>
+            </div>
+            <div class="field-group">
+              <div class="field">
+                <label for="source">How did you hear about XSITE Capital?</label>
+                <select id="source" name="source">
+                  <option value="" disabled selected>Select one</option>
+                  <option value="instagram">Instagram / Social media</option>
+                  <option value="youtube">YouTube</option>
+                  <option value="referral">Referred by someone</option>
+                  <option value="event">XSITE event or masterclass</option>
+                  <option value="search">Google / Search</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Continue to Booking
+            </button>
+            <p class="form-note">By submitting you agree to be contacted by the XSITE Capital team.<br>Your information is never sold or shared with third parties.</p>
+
+          </form>
+        </div>
+
+        <!-- Success + Calendly -->
+        <div class="success-screen" id="success-screen">
+          <div class="success-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2>One last step —<br><em>pick your time.</em></h2>
+          <p>Your details are in. Now choose a time that works for you and Leslie will be there.</p>
+          <div id="calendly-embed"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function getGoal() { return document.querySelector('[name="goal"]:checked')?.value || ''; }
+
+    function updateConditionalSections() {
+      const goal = getGoal();
+      const showInv = goal === 'Investing' || goal === 'Both';
+      const showEdu = goal === 'Education'  || goal === 'Both';
+      const eduType = document.querySelector('[name="edu_type"]:checked')?.value || '';
+      const showMen = showEdu && eduType === '12 Months 1:1 Coaching';
+      document.getElementById('section-investing').classList.toggle('visible', showInv);
+      document.getElementById('section-education').classList.toggle('visible', showEdu);
+      document.getElementById('section-mentorship').classList.toggle('visible', showMen);
+      if (!showInv) document.getElementById('err-invest-timeline').classList.remove('visible');
+      if (!showEdu) document.getElementById('err-edu-type').classList.remove('visible');
+      if (!showMen) document.getElementById('err-mentor-timeline').classList.remove('visible');
+      updateSteps();
+    }
+    document.querySelectorAll('[name="goal"], [name="edu_type"]').forEach(el => el.addEventListener('change', updateConditionalSections));
+
+    function updateSteps() {
+      const goal        = getGoal();
+      const contactDone = ['first-name','last-name','email','phone'].every(id => document.getElementById(id)?.value.trim());
+      const goalDone    = !!goal;
+      const investDone  = (goal !== 'Investing' && goal !== 'Both') || !!document.querySelector('[name="invest_timeline"]:checked');
+      const eduDone     = (goal !== 'Education' && goal !== 'Both') || !!document.querySelector('[name="edu_type"]:checked');
+      const mentorDone  = document.querySelector('[name="edu_type"]:checked')?.value !== '12 Months 1:1 Coaching' || !!document.querySelector('[name="mentor_timeline"]:checked');
+      const qualDone    = goalDone && investDone && eduDone && mentorDone;
+      const d1 = document.getElementById('dot-1'), d2 = document.getElementById('dot-2'), d3 = document.getElementById('dot-3');
+      const lbl = document.getElementById('steps-label');
+      if (contactDone && qualDone)       { d1.className='step-dot done'; d2.className='step-dot done'; d3.className='step-dot active'; lbl.textContent='Step 3 of 3 — Ready to continue'; }
+      else if (contactDone && goalDone)  { d1.className='step-dot done'; d2.className='step-dot active'; d3.className='step-dot'; lbl.textContent='Step 2 of 3'; }
+      else                               { d1.className='step-dot active'; d2.className='step-dot'; d3.className='step-dot'; lbl.textContent='Step 1 of 3'; }
+    }
+    document.getElementById('qualify-form').addEventListener('input', updateSteps);
+    document.getElementById('qualify-form').addEventListener('change', updateSteps);
+
+    function showError(fId, eId) { document.getElementById(fId)?.classList.add('error'); document.getElementById(eId)?.classList.add('visible'); }
+    function clearError(fId, eId) { document.getElementById(fId)?.classList.remove('error'); document.getElementById(eId)?.classList.remove('visible'); }
+    ['first-name','last-name','email','phone'].forEach(id => {
+      document.getElementById(id)?.addEventListener('input', () => { document.getElementById(id).classList.remove('error'); document.getElementById('err-'+id)?.classList.remove('visible'); });
+    });
+
+    document.getElementById('qualify-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+      const goal = getGoal();
+
+      if (!document.getElementById('first-name').value.trim()) { showError('first-name','err-first-name'); valid=false; } else clearError('first-name','err-first-name');
+      if (!document.getElementById('last-name').value.trim())  { showError('last-name','err-last-name');   valid=false; } else clearError('last-name','err-last-name');
+      const ev = document.getElementById('email').value.trim();
+      if (!ev || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(ev)) { showError('email','err-email'); valid=false; } else clearError('email','err-email');
+      if (!document.getElementById('phone').value.trim()) { showError('phone','err-phone'); valid=false; } else clearError('phone','err-phone');
+      if (!goal) { document.getElementById('err-goal').classList.add('visible'); valid=false; } else document.getElementById('err-goal').classList.remove('visible');
+      if (goal==='Investing'||goal==='Both') {
+        if (!document.querySelector('[name="invest_timeline"]:checked')) { document.getElementById('err-invest-timeline').classList.add('visible'); valid=false; }
+        else document.getElementById('err-invest-timeline').classList.remove('visible');
+      }
+      if (goal==='Education'||goal==='Both') {
+        if (!document.querySelector('[name="edu_type"]:checked')) { document.getElementById('err-edu-type').classList.add('visible'); valid=false; }
+        else {
+          document.getElementById('err-edu-type').classList.remove('visible');
+          if (document.querySelector('[name="edu_type"]:checked')?.value==='12 Months 1:1 Coaching') {
+            if (!document.querySelector('[name="mentor_timeline"]:checked')) { document.getElementById('err-mentor-timeline').classList.add('visible'); valid=false; }
+            else document.getElementById('err-mentor-timeline').classList.remove('visible');
+          }
+        }
+      }
+      if (!valid) { document.querySelector('.error, .field-error-msg.visible')?.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+
+      const name  = document.getElementById('first-name').value.trim() + ' ' + document.getElementById('last-name').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('success-screen').classList.add('visible');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      Calendly.initInlineWidget({
+        url: 'https://calendly.com/leslie-awasom/xsite-guidance-call',
+        parentElement: document.getElementById('calendly-embed'),
+        prefill: { name, email },
+        utm: {}
+      });
+    });
+  </script>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
