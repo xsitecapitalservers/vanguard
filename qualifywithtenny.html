@@ -500,9 +500,33 @@
       }
       if (!valid) { document.querySelector('.error, .field-error-msg.visible')?.scrollIntoView({behavior:'smooth',block:'center'}); return; }
 
-      const name  = document.getElementById('first-name').value.trim() + ' ' + document.getElementById('last-name').value.trim();
-      const email = document.getElementById('email').value.trim();
+      const firstName = document.getElementById('first-name').value.trim();
+      const lastName  = document.getElementById('last-name').value.trim();
+      const email     = document.getElementById('email').value.trim();
+      const phone     = document.getElementById('phone').value.trim();
+      const investExp = Array.from(document.querySelectorAll('[name="invest_experience"]:checked')).map(el => el.value);
 
+      // Fire-and-forget — capture lead in Supabase + Pipedrive without blocking the UX
+      fetch('https://atjymhgrshdwzrrmvaej.supabase.co/functions/v1/vanguard-lead-capture', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name:       firstName,
+          last_name:        lastName,
+          email,
+          phone,
+          goal,
+          invest_timeline:  document.querySelector('[name="invest_timeline"]:checked')?.value || null,
+          invest_experience: investExp,
+          edu_type:         document.querySelector('[name="edu_type"]:checked')?.value || null,
+          mentor_timeline:  document.querySelector('[name="mentor_timeline"]:checked')?.value || null,
+          anything_else:    document.getElementById('anything-else').value.trim() || null,
+          source:           document.getElementById('source').value || null,
+          page:             'tenny'
+        })
+      }).catch(err => console.warn('Lead capture error:', err));
+
+      // Show booking screen immediately — don't wait on the API
       document.getElementById('form-container').style.display = 'none';
       document.getElementById('success-screen').classList.add('visible');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -510,7 +534,7 @@
       Calendly.initInlineWidget({
         url: 'https://calendly.com/tenny-tolofari/xsite-guidance-call',
         parentElement: document.getElementById('calendly-embed'),
-        prefill: { name, email },
+        prefill: { name: firstName + ' ' + lastName, email },
         utm: {}
       });
     });
