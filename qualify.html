@@ -452,6 +452,94 @@
       border-radius: var(--radius-md);
       border: 1px solid rgba(201,168,76,0.12) !important;
     }
+
+    /* Founder booking cards */
+    .booking-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+    .booking-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .booking-card:hover {
+      border-color: rgba(201,168,76,0.45);
+      background: rgba(201,168,76,0.06);
+      transform: translateY(-2px);
+    }
+    .booking-card.selected {
+      border-color: rgba(201,168,76,0.6);
+      background: rgba(201,168,76,0.08);
+    }
+    .booking-card.dimmed {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .booking-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(201,168,76,0.3);
+    }
+    .booking-name {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--white);
+    }
+    .booking-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .booking-cta {
+      margin-top: 0.25rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(201,168,76,0.35);
+      background: transparent;
+      color: var(--gold-light);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--sans);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .booking-card:hover .booking-cta,
+    .booking-card.selected .booking-cta {
+      background: rgba(201,168,76,0.15);
+      border-color: rgba(201,168,76,0.6);
+    }
+    .booking-back {
+      font-size: 0.75rem;
+      color: var(--white-30);
+      cursor: pointer;
+      margin-top: 0.5rem;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      transition: color 0.2s;
+    }
+    .booking-back:hover { color: var(--gold); }
+    @media (max-width: 480px) {
+      .booking-cards { grid-template-columns: 1fr; }
+    }
     .success-icon {
       width: 72px;
       height: 72px;
@@ -822,8 +910,32 @@
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <h2>You're in.<br><em>Book your call.</em></h2>
-          <p>Your application is received. The next step is a quick guidance call — pick a time that works for you below.</p>
-          <div id="calendly-embed" style="width:100%; min-height:700px; margin-top: 1rem;"></div>
+          <p>Your application is received. Pick a time with one of our founders below — they'll walk you through everything on a quick guidance call.</p>
+
+          <!-- Founder cards -->
+          <div class="booking-cards" id="booking-cards">
+            <div class="booking-card" id="card-tenny" onclick="openCalendly('tenny')">
+              <img class="booking-photo" src="img/founder-tenny.jpg" alt="Tenny Tolofari" />
+              <div>
+                <div class="booking-name">Tenny Tolofari</div>
+                <div class="booking-title">Head of Acquisitions</div>
+              </div>
+              <div class="booking-cta">Book with Tenny</div>
+            </div>
+            <div class="booking-card" id="card-leslie" onclick="openCalendly('leslie')">
+              <img class="booking-photo" src="img/founder-leslie.jpg" alt="Leslie Awasom" />
+              <div>
+                <div class="booking-name">Leslie Awasom</div>
+                <div class="booking-title">COO, XSITE Capital</div>
+              </div>
+              <div class="booking-cta">Book with Leslie</div>
+            </div>
+          </div>
+
+          <!-- Calendly embed (hidden until a founder is selected) -->
+          <div id="calendly-embed" style="width:100%; min-height:700px; margin-top:1.5rem; display:none;"></div>
+          <button class="booking-back" id="booking-back" style="display:none;" onclick="resetCalendly()">← Choose a different person</button>
+
           <a href="index.html" class="btn-back-home" style="margin-top: 2rem;">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
             Back to Vanguard
@@ -997,23 +1109,59 @@
 
       console.log('Vanguard Application:', data);
 
-      document.getElementById('form-container').style.display = 'none';
-      const successEl = document.getElementById('success-screen');
-      successEl.classList.add('visible');
+      // Store applicant info for Calendly prefill
+      window._applicantName  = data.first_name + ' ' + data.last_name;
+      window._applicantEmail = data.email;
 
-      // Init Calendly inline embed
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('success-screen').classList.add('visible');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const CALENDLY_URLS = {
+      tenny:  'https://calendly.com/tenny-tolofari/xsite-guidance-call',
+      leslie: 'https://calendly.com/leslie-awasom/xsite-guidance-call',
+    };
+
+    function openCalendly(person) {
+      // Highlight selected card, dim the other
+      const cards = { tenny: document.getElementById('card-tenny'), leslie: document.getElementById('card-leslie') };
+      Object.keys(cards).forEach(k => {
+        cards[k].classList.toggle('selected', k === person);
+        cards[k].classList.toggle('dimmed',   k !== person);
+      });
+
+      // Clear and show embed container
+      const embedEl = document.getElementById('calendly-embed');
+      embedEl.innerHTML = '';
+      embedEl.style.display = 'block';
+      document.getElementById('booking-back').style.display = 'block';
+
       Calendly.initInlineWidget({
-        url: 'https://calendly.com/d/cr3d-n9b-hrr/xsite-guidance-call',
-        parentElement: document.getElementById('calendly-embed'),
+        url: CALENDLY_URLS[person],
+        parentElement: embedEl,
         prefill: {
-          name:  data.first_name + ' ' + data.last_name,
-          email: data.email,
+          name:  window._applicantName  || '',
+          email: window._applicantEmail || '',
         },
         utm: {}
       });
 
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+      // Scroll to embed
+      setTimeout(() => embedEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+    }
+
+    function resetCalendly() {
+      // Reset cards
+      ['card-tenny','card-leslie'].forEach(id => {
+        document.getElementById(id).classList.remove('selected','dimmed');
+      });
+      // Hide embed
+      const embedEl = document.getElementById('calendly-embed');
+      embedEl.style.display = 'none';
+      embedEl.innerHTML = '';
+      document.getElementById('booking-back').style.display = 'none';
+    }
   </script>
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
